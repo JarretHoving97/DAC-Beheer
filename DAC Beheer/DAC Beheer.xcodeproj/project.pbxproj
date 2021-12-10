@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE642761352E00D1E1A2 /* DAC_BeheerApp.swift */; };
+		A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE662761352E00D1E1A2 /* ContentView.swift */; };
+		A324EE692761353000D1E1A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A324EE682761353000D1E1A2 /* Assets.xcassets */; };
+		A324EE6C2761353000D1E1A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A324EE6B2761353000D1E1A2 /* Preview Assets.xcassets */; };
+		A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE73276135CD00D1E1A2 /* SystemColors.swift */; };
+		A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE75276136E000D1E1A2 /* SystemFont.swift */; };
+		A34D37C827625621009D11F2 /* BalooBhai2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34D37C327625620009D11F2 /* BalooBhai2-ExtraBold.ttf */; };
+		A34D37CA27625621009D11F2 /* BalooBhai2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34D37C527625621009D11F2 /* BalooBhai2-SemiBold.ttf */; };
+		A34D37CB27625621009D11F2 /* BalooBhai2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34D37C627625621009D11F2 /* BalooBhai2-Medium.ttf */; };
+		A34D37CF27625780009D11F2 /* BalooBhai2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34D37CE27625780009D11F2 /* BalooBhai2-Bold.ttf */; };
+		A34D37D427625DAC009D11F2 /* BalooBhai2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A34D37D327625DAC009D11F2 /* BalooBhai2-Regular.ttf */; };
+		A34D37DD276285E3009D11F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37DC276285E3009D11F2 /* HomeView.swift */; };
+		A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37DE2762863A009D11F2 /* MainTabbar.swift */; };
+		A34D37E127628ABD009D11F2 /* SystemIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37E027628ABD009D11F2 /* SystemIcons.swift */; };
+		A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4A0902762946B0041487F /* TabbarButton.swift */; };
+		A3F4A09427629EEC0041487F /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4A09327629EEC0041487F /* ViewRouter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A324EE612761352E00D1E1A2 /* DAC Beheer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DAC Beheer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A324EE642761352E00D1E1A2 /* DAC_BeheerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAC_BeheerApp.swift; sourceTree = "<group>"; };
+		A324EE662761352E00D1E1A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A324EE682761353000D1E1A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A324EE6B2761353000D1E1A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A324EE73276135CD00D1E1A2 /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
+		A324EE75276136E000D1E1A2 /* SystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemFont.swift; sourceTree = "<group>"; };
+		A34D37C327625620009D11F2 /* BalooBhai2-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A34D37C527625621009D11F2 /* BalooBhai2-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-SemiBold.ttf"; sourceTree = "<group>"; };
+		A34D37C627625621009D11F2 /* BalooBhai2-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-Medium.ttf"; sourceTree = "<group>"; };
+		A34D37CE27625780009D11F2 /* BalooBhai2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-Bold.ttf"; sourceTree = "<group>"; };
+		A34D37D327625DAC009D11F2 /* BalooBhai2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-Regular.ttf"; sourceTree = "<group>"; };
+		A34D37DC276285E3009D11F2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A34D37DE2762863A009D11F2 /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
+		A34D37E027628ABD009D11F2 /* SystemIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemIcons.swift; sourceTree = "<group>"; };
+		A3F4A0902762946B0041487F /* TabbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarButton.swift; sourceTree = "<group>"; };
+		A3F4A09327629EEC0041487F /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A324EE5E2761352E00D1E1A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A324EE582761352E00D1E1A2 = {
+			isa = PBXGroup;
+			children = (
+				A324EE632761352E00D1E1A2 /* DAC Beheer */,
+				A324EE622761352E00D1E1A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A324EE622761352E00D1E1A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A324EE612761352E00D1E1A2 /* DAC Beheer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A324EE632761352E00D1E1A2 /* DAC Beheer */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37DA276284E8009D11F2 /* View */,
+				A34D37D8276284C8009D11F2 /* Scenes */,
+				A324EE642761352E00D1E1A2 /* DAC_BeheerApp.swift */,
+				A324EE662761352E00D1E1A2 /* ContentView.swift */,
+				A324EE72276135BC00D1E1A2 /* Util */,
+				A34D37C0276255BB009D11F2 /* Resources */,
+				A324EE682761353000D1E1A2 /* Assets.xcassets */,
+				A324EE6A2761353000D1E1A2 /* Preview Content */,
+			);
+			path = "DAC Beheer";
+			sourceTree = "<group>";
+		};
+		A324EE6A2761353000D1E1A2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A324EE6B2761353000D1E1A2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A324EE72276135BC00D1E1A2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A324EE73276135CD00D1E1A2 /* SystemColors.swift */,
+				A324EE75276136E000D1E1A2 /* SystemFont.swift */,
+				A34D37E027628ABD009D11F2 /* SystemIcons.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A34D37C0276255BB009D11F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37D727625F13009D11F2 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A34D37D727625F13009D11F2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37CE27625780009D11F2 /* BalooBhai2-Bold.ttf */,
+				A34D37C327625620009D11F2 /* BalooBhai2-ExtraBold.ttf */,
+				A34D37D327625DAC009D11F2 /* BalooBhai2-Regular.ttf */,
+				A34D37C627625621009D11F2 /* BalooBhai2-Medium.ttf */,
+				A34D37C527625621009D11F2 /* BalooBhai2-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A34D37D8276284C8009D11F2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37DB276285D4009D11F2 /* HomeView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A34D37D9276284DA009D11F2 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4A09227629ED60041487F /* NavigationLogic */,
+				A34D37DE2762863A009D11F2 /* MainTabbar.swift */,
+				A3F4A0902762946B0041487F /* TabbarButton.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		A34D37DA276284E8009D11F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37D9276284DA009D11F2 /* Tabbar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A34D37DB276285D4009D11F2 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A34D37DC276285E3009D11F2 /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		A3F4A09227629ED60041487F /* NavigationLogic */ = {
+			isa = PBXGroup;
+			children = (
+				A3F4A09327629EEC0041487F /* ViewRouter.swift */,
+			);
+			path = NavigationLogic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A324EE602761352E00D1E1A2 /* DAC Beheer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A324EE6F2761353000D1E1A2 /* Build configuration list for PBXNativeTarget "DAC Beheer" */;
+			buildPhases = (
+				A324EE5D2761352E00D1E1A2 /* Sources */,
+				A324EE5E2761352E00D1E1A2 /* Frameworks */,
+				A324EE5F2761352E00D1E1A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DAC Beheer";
+			productName = "DAC Beheer";
+			productReference = A324EE612761352E00D1E1A2 /* DAC Beheer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A324EE592761352E00D1E1A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					A324EE602761352E00D1E1A2 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = A324EE5C2761352E00D1E1A2 /* Build configuration list for PBXProject "DAC Beheer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A324EE582761352E00D1E1A2;
+			productRefGroup = A324EE622761352E00D1E1A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A324EE602761352E00D1E1A2 /* DAC Beheer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A324EE5F2761352E00D1E1A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A34D37CF27625780009D11F2 /* BalooBhai2-Bold.ttf in Resources */,
+				A34D37CA27625621009D11F2 /* BalooBhai2-SemiBold.ttf in Resources */,
+				A34D37CB27625621009D11F2 /* BalooBhai2-Medium.ttf in Resources */,
+				A34D37D427625DAC009D11F2 /* BalooBhai2-Regular.ttf in Resources */,
+				A324EE6C2761353000D1E1A2 /* Preview Assets.xcassets in Resources */,
+				A324EE692761353000D1E1A2 /* Assets.xcassets in Resources */,
+				A34D37C827625621009D11F2 /* BalooBhai2-ExtraBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A324EE5D2761352E00D1E1A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3F4A09427629EEC0041487F /* ViewRouter.swift in Sources */,
+				A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */,
+				A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */,
+				A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */,
+				A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */,
+				A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */,
+				A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */,
+				A34D37DD276285E3009D11F2 /* HomeView.swift in Sources */,
+				A34D37E127628ABD009D11F2 /* SystemIcons.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A324EE6D2761353000D1E1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A324EE6E2761353000D1E1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A324EE702761353000D1E1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DAC Beheer/Preview Content\"";
+				DEVELOPMENT_TEAM = K4BTMSB564;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DAC-Beheer-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarretdevs.DAC-Beheer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A324EE712761353000D1E1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DAC Beheer/Preview Content\"";
+				DEVELOPMENT_TEAM = K4BTMSB564;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DAC-Beheer-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jarretdevs.DAC-Beheer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A324EE5C2761352E00D1E1A2 /* Build configuration list for PBXProject "DAC Beheer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A324EE6D2761353000D1E1A2 /* Debug */,
+				A324EE6E2761353000D1E1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A324EE6F2761353000D1E1A2 /* Build configuration list for PBXNativeTarget "DAC Beheer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A324EE702761353000D1E1A2 /* Debug */,
+				A324EE712761353000D1E1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A324EE592761352E00D1E1A2 /* Project object */;
+}

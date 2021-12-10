@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BalooBhai2-SemiBold.ttf</string>
+		<string>BalooBhai2-Medium.ttf</string>
+		<string>BalooBhai2-Regular.ttf</string>
+		<string>BalooBhai2-ExtraBold.ttf</string>
+		<string>BalooBhai2-Bold.ttf</string>
+	</array>
+</dict>
+</plist>
