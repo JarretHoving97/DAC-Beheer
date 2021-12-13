@@ -15,6 +15,11 @@ struct TabBarButton: View {
         case filled
     }
     @StateObject var viewRouter: ViewRouer
+    
+    var selected: Bool {
+        return viewRouter.currentPage == assingedPage
+    }
+    
     let assingedPage: Page
     var image: Image
     var style: ButtonStyle
@@ -30,35 +35,32 @@ struct TabBarButton: View {
                 withAnimation {
                     viewRouter.currentPage = assingedPage
                 }
-                
-         
-                
             }, label: {
                 ZStack {
                     switch style {
                     case .bordered:
-                        Color.white
+                        SystemColors.tabbar
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(SystemColors.theme1 , lineWidth: 3)
+                                    .stroke(SystemColors.theme1 , lineWidth: selected ? 5 : 0)
                             )
                             .cornerRadius(10)
                             .frame(width: 53, height: 53)
-                            
-                            .shadow(color: SystemColors.theme1.opacity(0.65), radius: viewRouter.currentPage == assingedPage ? 4: 0, x: 0, y: viewRouter.currentPage == assingedPage ? 6: 0)
-                           
+                        
+                            .shadow(color: selected ? .black.opacity(0.25) : .clear, radius: selected ? 4: 0, x: 0, y: selected ? 6: 0)
+                        
                     case .filled:
                         SystemColors.theme1
                             .cornerRadius(10)
                             .frame(width: 53, height: 50)
                             .themedFont(name: .medium, size: .small)
-                            .shadow(color: .black.opacity(0.25), radius: viewRouter.currentPage == assingedPage ? 4: 0, x: 0, y: viewRouter.currentPage == assingedPage ? 6: 0)
+                            .shadow(color: .black.opacity(0.25), radius: selected ? 4: 0, x: 0, y: selected ? 6: 0)
                     }
                     image
-                        
+                    
                 }
             })
-                .offset(y: viewRouter.currentPage == assingedPage ? -10 : 0)
+                .offset(y: selected ? -10 : 0)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         // maximum height

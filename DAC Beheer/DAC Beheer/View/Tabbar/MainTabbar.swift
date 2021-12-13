@@ -19,11 +19,11 @@ struct MainTabbar: View {
             Spacer()
             switch viewRouter.currentPage {
             case .home:
-                Text("Home")
+                HomeView()
             case .issues:
                 Text("Issues")
             case .verify:
-                Text("verify")
+                Text("Verify")
             }
             Spacer()
             
@@ -37,7 +37,7 @@ struct MainTabbar: View {
                 
             }
             .padding()
-            .background(Color.white)
+            .background(SystemColors.tabbar)
             .cornerRadius(15)
             .padding(.horizontal)
             .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
@@ -47,6 +47,6 @@ struct MainTabbar: View {
 
 struct MainTabbar_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView(viewRouter: .init())
     }
 }

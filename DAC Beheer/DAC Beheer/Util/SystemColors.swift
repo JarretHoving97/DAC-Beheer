@@ -26,9 +26,14 @@ struct SystemColors {
         return .white
     }
     
+    static var tabbar: Color {
+        return colorSet(.tabbarColor)
+    }
+    
     enum SystemColorsName: String {
         case theme = "theme"
         case background = "background"
+        case tabbarColor = "tabbar_color"
     }
     
 }

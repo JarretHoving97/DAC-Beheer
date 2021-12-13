@@ -15,6 +15,7 @@ struct DAC_BeheerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(viewRouter: viewRouter)
+                .background(SystemColors.background)
         }
     }
 }

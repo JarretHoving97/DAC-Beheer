@@ -21,6 +21,10 @@
 		A34D37DD276285E3009D11F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37DC276285E3009D11F2 /* HomeView.swift */; };
 		A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37DE2762863A009D11F2 /* MainTabbar.swift */; };
 		A34D37E127628ABD009D11F2 /* SystemIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D37E027628ABD009D11F2 /* SystemIcons.swift */; };
+		A3787EB52764F6A7009480A5 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3787EB42764F6A7009480A5 /* HomeHeaderView.swift */; };
+		A3787EB72764F8B4009480A5 /* ScoreSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3787EB62764F8B4009480A5 /* ScoreSquareView.swift */; };
+		A39420542767E47600BA5CC5 /* MenuButtonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */; };
+		A39420582767E81F00BA5CC5 /* MenuButtonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */; };
 		A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4A0902762946B0041487F /* TabbarButton.swift */; };
 		A3F4A09427629EEC0041487F /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4A09327629EEC0041487F /* ViewRouter.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,10 @@
 		A34D37DC276285E3009D11F2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A34D37DE2762863A009D11F2 /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
 		A34D37E027628ABD009D11F2 /* SystemIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemIcons.swift; sourceTree = "<group>"; };
+		A3787EB42764F6A7009480A5 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		A3787EB62764F8B4009480A5 /* ScoreSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSquareView.swift; sourceTree = "<group>"; };
+		A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsModel.swift; sourceTree = "<group>"; };
+		A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsViewModel.swift; sourceTree = "<group>"; };
 		A3F4A0902762946B0041487F /* TabbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarButton.swift; sourceTree = "<group>"; };
 		A3F4A09327629EEC0041487F /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,9 +162,29 @@
 		A34D37DB276285D4009D11F2 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				A39420522767E45500BA5CC5 /* CollectionGridModel */,
+				A3787EB32764F697009480A5 /* Header */,
 				A34D37DC276285E3009D11F2 /* HomeView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		A3787EB32764F697009480A5 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				A3787EB42764F6A7009480A5 /* HomeHeaderView.swift */,
+				A3787EB62764F8B4009480A5 /* ScoreSquareView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		A39420522767E45500BA5CC5 /* CollectionGridModel */ = {
+			isa = PBXGroup;
+			children = (
+				A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */,
+				A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */,
+			);
+			path = CollectionGridModel;
 			sourceTree = "<group>";
 		};
 		A3F4A09227629ED60041487F /* NavigationLogic */ = {
@@ -242,12 +270,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39420542767E47600BA5CC5 /* MenuButtonsModel.swift in Sources */,
 				A3F4A09427629EEC0041487F /* ViewRouter.swift in Sources */,
 				A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */,
 				A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */,
 				A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */,
 				A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */,
+				A3787EB72764F8B4009480A5 /* ScoreSquareView.swift in Sources */,
 				A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */,
+				A3787EB52764F6A7009480A5 /* HomeHeaderView.swift in Sources */,
+				A39420582767E81F00BA5CC5 /* MenuButtonsViewModel.swift in Sources */,
 				A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */,
 				A34D37DD276285E3009D11F2 /* HomeView.swift in Sources */,
 				A34D37E127628ABD009D11F2 /* SystemIcons.swift in Sources */,

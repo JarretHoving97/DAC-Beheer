@@ -10,13 +10,31 @@ import SwiftUI
 struct HomeView: View {
     @State var selectedTab = 1
     @StateObject var viewRouter = ViewRouer()
+    
+    var items: [GridItem] {
+        Array(repeating: .init(.flexible()), count: TabMenu.menuItems.count)
+    }
+    var columns = [
+        GridItem(.flexible(minimum: 20))
+    ]
+    
     var body: some View {
-        
-        ZStack(alignment: .bottom) {
-            SystemColors.colorSet(.background)
-                .ignoresSafeArea()
+        ScrollView(.vertical) {
+            HStack {
+                HomeHeaderView()
+                    .frame(height: 237, alignment: .center)
+                    .cornerRadius(20)
+                    .padding(17)
+            }
             
-            MainTabbar(viewRouter: viewRouter, selectedTab: $selectedTab)
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(TabMenu.menuItems, id: \.self) { item in
+                    let model = TabMenu.getButtonForItem(option: item)
+                    MenuButtonsViewModel(model: model)
+                }
+                .padding(.horizontal)
+          
+            }
         }
     }
 }

@@ -51,6 +51,9 @@ struct ScaledFont: ViewModifier {
         case largeValutaSub = 24
         /// 56 pt
         case largeValuta = 56
+        
+        // 9pt
+        case subLabel = 9
     }
     
     var name: ThemeFont
