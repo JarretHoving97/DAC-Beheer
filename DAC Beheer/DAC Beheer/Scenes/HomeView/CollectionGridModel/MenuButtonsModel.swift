@@ -29,7 +29,7 @@ struct TabMenu {
         case .matches:
             return MenuButton(imageName: "volleyball_menu_image", subTitle: option.rawValue)
         case .teams:
-            return MenuButton(imageName: "team_menu_image", subTitle: option.rawValue)
+            return MenuButton(imageName: "teams_menu_image", subTitle: option.rawValue)
         case .users:
             return MenuButton(imageName: "users_menu_image", subTitle: option.rawValue)
         case .news:

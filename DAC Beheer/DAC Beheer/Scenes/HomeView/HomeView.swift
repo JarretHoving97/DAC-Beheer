@@ -15,26 +15,36 @@ struct HomeView: View {
         Array(repeating: .init(.flexible()), count: TabMenu.menuItems.count)
     }
     var columns = [
-        GridItem(.flexible(minimum: 20))
+        GridItem(.flexible()),
+        GridItem(.flexible())
+     
     ]
     
     var body: some View {
         ScrollView(.vertical) {
-            HStack {
-                HomeHeaderView()
-                    .frame(height: 237, alignment: .center)
-                    .cornerRadius(20)
-                    .padding(17)
-            }
-            
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(TabMenu.menuItems, id: \.self) { item in
-                    let model = TabMenu.getButtonForItem(option: item)
-                    MenuButtonsViewModel(model: model)
+            VStack{
+                HStack {
+                    HomeHeaderView()
+                        .frame(height: 237, alignment: .center)
+                        .cornerRadius(20)
+                        .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
+                    }
+                .padding(.bottom, 21)
+                
+                LazyVGrid(columns: columns, spacing: 21) {
+                    ForEach(TabMenu.menuItems, id: \.self) { item in
+                        let model = TabMenu.getButtonForItem(option: item)
+                        MenuButtonsViewModel(model: model)
+                            .frame(maxWidth: 169,  maxHeight: 153,   alignment: .center)
+                            .aspectRatio(1, contentMode: .fill)
+                            .cornerRadius(20)
+                            .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
+                    }
                 }
-                .padding(.horizontal)
-          
+                .aspectRatio(1, contentMode: .fill)
             }
+            .padding(17)
+
         }
     }
 }

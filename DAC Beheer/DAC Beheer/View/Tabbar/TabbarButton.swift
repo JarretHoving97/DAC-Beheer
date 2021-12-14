@@ -70,6 +70,6 @@ struct TabBarButton: View {
 
 struct TabbarButton_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView(viewRouter: ViewRouer())
     }
 }
