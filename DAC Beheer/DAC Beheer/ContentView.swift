@@ -9,17 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewRouter: ViewRouer
-    @State var selectedTab: Int = 1
-    
+    @StateObject var viewRouter: ViewRouter
+
     var body: some View {
-        MainTabbar(viewRouter: viewRouter, selectedTab: $selectedTab)
+        ZStack {
+            MainTabbar(viewRouter: viewRouter)
+            PresentableFrame(viewRouter: viewRouter) 
+        }
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouer())
+        ContentView(viewRouter: ViewRouter())
          
     }
 }

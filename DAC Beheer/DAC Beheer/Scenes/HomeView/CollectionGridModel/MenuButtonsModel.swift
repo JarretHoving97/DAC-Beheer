@@ -15,9 +15,19 @@ enum MenuOption: String {
     case teams = "Team indelingen"
     case users = "Gebruikers"
     case news = "Nieuws"
+    case clear = ""
 }
 
-struct TabMenu {
+enum MenuOption1: String {
+    case events
+    case matches
+    case teams
+    case users
+    case news
+    case clear
+}
+
+struct MenuModel {
     static var menuItems: [MenuOption] {
         [.events, .matches, .teams, .users, .news]
     }
@@ -34,6 +44,8 @@ struct TabMenu {
             return MenuButton(imageName: "users_menu_image", subTitle: option.rawValue)
         case .news:
             return MenuButton(imageName: "news_menu_image", subTitle: option.rawValue)
+        case .clear:
+            return MenuButton(imageName: "", subTitle: "")
         }
     }
 }
@@ -42,6 +54,3 @@ struct MenuButton {
     let imageName: String
     let subTitle: String
 }
-
-
-

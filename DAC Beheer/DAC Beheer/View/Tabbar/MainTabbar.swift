@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MainTabbar: View {
 
-    @StateObject var viewRouter: ViewRouer
-    @Binding var selectedTab: Int
-
+    @StateObject var viewRouter: ViewRouter
     
     var body: some View {
         
@@ -20,7 +18,7 @@ struct MainTabbar: View {
                 Spacer()
                 switch viewRouter.currentPage {
                 case .home:
-                    HomeView()
+                    HomeView(viewRouter: viewRouter)
                 case .issues:
                     Text("Issues")
                 case .verify:
@@ -45,13 +43,12 @@ struct MainTabbar: View {
                 .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
                 .background(.clear)
             }
-
         }
     }
 }
 
 struct MainTabbar_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouer())
+        ContentView(viewRouter: ViewRouter())
     }
 }

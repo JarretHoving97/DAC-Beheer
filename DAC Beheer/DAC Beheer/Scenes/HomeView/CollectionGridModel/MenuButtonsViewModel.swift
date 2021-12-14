@@ -24,7 +24,6 @@ struct MenuButtonsViewModel: View {
             }
             Spacer()
         }
-        .frame(width: .infinity, height: .infinity, alignment: .topLeading)
         .background(SystemColors.theme1)
     }
 }

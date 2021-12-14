@@ -14,7 +14,7 @@ struct TabBarButton: View {
         case bordered
         case filled
     }
-    @StateObject var viewRouter: ViewRouer
+    @StateObject var viewRouter: ViewRouter
     
     var selected: Bool {
         return viewRouter.currentPage == assingedPage
@@ -70,6 +70,6 @@ struct TabBarButton: View {
 
 struct TabbarButton_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewRouter: ViewRouer())
+        ContentView(viewRouter: ViewRouter())
     }
 }
