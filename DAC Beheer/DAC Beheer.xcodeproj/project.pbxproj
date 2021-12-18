@@ -287,6 +287,7 @@
 		A383040E276E3B6F00B2B888 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				A3E9F173276E3E4500361050 /* NewsView */,
 				A3E9F171276E3D2700361050 /* NewsNavigationView.swift */,
 			);
 			path = News;
@@ -299,6 +300,13 @@
 				A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */,
 			);
 			path = CollectionGridModel;
+			sourceTree = "<group>";
+		};
+		A3E9F173276E3E4500361050 /* NewsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewsView;
 			sourceTree = "<group>";
 		};
 		A3F4A09227629ED60041487F /* NavigationLogic */ = {

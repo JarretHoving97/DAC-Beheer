@@ -19,6 +19,8 @@ struct EventNavigationView: View {
                 .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
                 .padding(.leading, 17)
                 .foregroundColor(SystemColors.backgroundText)
+            
+            ScrollView {}// content
         }
         .background(SystemColors.background)
         
