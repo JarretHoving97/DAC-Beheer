@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-///Builds a view on top of contentView
-///Remove any view here to viewRouter.popOverView to .clear
+/// Build a view on top of tabbar views
+/// set viewRouter.popOverPages to .clear to remove any view ad return to tabbar
 struct PresentableFrame: View {
     @StateObject var viewRouter: ViewRouter
     
@@ -17,12 +17,20 @@ struct PresentableFrame: View {
         Group(content: contentBuilder)
     }
     
+    var viewIsEmpty: Bool {
+        return viewRouter.popOverPages == .clear
+    }
+    
     @ViewBuilder
     func contentBuilder() -> some View {
-        if viewRouter.popOverPages != .clear {
-            ReturnableView(viewRouter: viewRouter) {
-                HomeViewNavigator.selectMenuItem(viewRouter.popOverPages)
-            }
+        ReturnableView(viewRouter: viewRouter) {
+            HomeViewNavigator.selectMenuItem(viewRouter.popOverPages)
         }
+    }
+}
+
+struct PresentableFrame_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(viewRouter: ViewRouter())
     }
 }

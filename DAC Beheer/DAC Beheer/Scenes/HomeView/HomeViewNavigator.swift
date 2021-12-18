@@ -12,10 +12,25 @@ struct HomeViewNavigator {
    static func selectMenuItem(_ option: MenuOption) -> AnyView? {
         switch option {
         case .users:
-            return AnyView(UsersView())
+            return AnyView(UserNavigation())
+        case .events:
+            return AnyView(EventNavigationView())
+        case .matches:
+            return AnyView(MatchNavigationView())
+        case .news:
+            return AnyView(NewsNavigationView())
+        case .teams:
+            return AnyView(TeamNavigationView())
         default:
             print("no view found")
             return nil
         }
+    }
+}
+
+
+struct HomeViewNavigator_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(viewRouter: ViewRouter())
     }
 }

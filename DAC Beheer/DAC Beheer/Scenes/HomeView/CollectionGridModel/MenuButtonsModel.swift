@@ -24,7 +24,7 @@ enum MenuOption1: String {
     case teams
     case users
     case news
-    case clear
+    case clear // do not show anything
 }
 
 struct MenuModel {

@@ -25,7 +25,6 @@ struct ScoreSquareView: View {
                 Spacer()
                 Text(additionalInfo)
                     .themedFont(name: .semiBold, size: .subLabel).foregroundColor(SystemColors.itemTextColor)
-                    .frame(width: .infinity, height: .infinity)
                     .padding(.trailing, 10)
                     .padding(.bottom, 10)
             }

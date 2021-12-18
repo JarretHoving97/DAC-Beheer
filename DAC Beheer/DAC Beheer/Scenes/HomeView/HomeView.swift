@@ -21,7 +21,7 @@ struct HomeView: View {
     
     var body: some View {
 
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 HStack {
                     HomeHeaderView()
@@ -48,6 +48,8 @@ struct HomeView: View {
                     }
                 }
                 .aspectRatio(1, contentMode: .fill)
+                Spacer()
+                    .frame(height: 60) // tabbarheight
             }
             .padding(17)
         }

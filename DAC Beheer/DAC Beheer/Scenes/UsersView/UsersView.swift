@@ -9,11 +9,16 @@ import SwiftUI
 
 struct UsersView: View {
     var body: some View {
-    NavigationView {
-            ScrollView {
-                Text("GebruikersPagina!")
-            }
         
+        ScrollView {
+            VStack(spacing: 13) {
+                //Searchabr
+                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
+                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
+                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
+                
+                //repeatable cell
+            }
         }
         .background(SystemColors.background)
     }
