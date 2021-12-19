@@ -16,7 +16,7 @@ struct HomeHeaderView: View {
         VStack(spacing: 0) {
             HStack {
                 Text(model.clubName)
-                    .frame(width: .infinity, height: 40, alignment: .leading)
+                    .frame(height: 40, alignment: .leading)
                     .themedFont(name: .bold, size: .numberpad).foregroundColor(.white)
                     .padding(.top, 11)
                 .padding(.leading, 16)

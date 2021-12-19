@@ -23,10 +23,15 @@ struct SystemSymbol {
       return themed(.issue)
     }
     
+    static var cross: Image {
+        return themed(.close)
+    }
+    
     enum SystemIcon: String {
         case home = "ic_home_tabbar"
         case issue = "ic_issue_tabbar"
         case verifyUser = "ic_verify_user_tabbar"
+        case close = "ic_cross_image"
     }
 
 }

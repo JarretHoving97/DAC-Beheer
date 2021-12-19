@@ -11,13 +11,20 @@ struct MenuButtonsViewModel: View {
     let model: MenuButton
     
     var body: some View {
-        VStack(spacing: 0) {
-            Image(model.imageName)
-                .frame(width: 88, height: 88, alignment: .center)
-            Text(model.subTitle).themedFont(name: .bold, size: .subtitle).foregroundColor(.white)
+        VStack(alignment: .center, spacing: 0) {
+            Spacer()
+            HStack {
+                Spacer()
+                VStack {
+                    Image(model.imageName)
+                        .frame(width: 80, height: 80, alignment: .center)
+                    Text(model.subTitle).themedFont(name: .bold, size: .subtitle).foregroundColor(.white)
+                }
+             Spacer()
+            }
+            Spacer()
         }
         .background(SystemColors.theme1)
-        .frame(width: .infinity, height: .infinity, alignment: .center)
     }
 }
 

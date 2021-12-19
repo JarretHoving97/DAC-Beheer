@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 struct SystemColors {
     
@@ -18,24 +19,30 @@ struct SystemColors {
         return colorSet(.background)
     }
     
-    static var backgroundTextColor: Color {
-        return colorSet(.theme)
-    }
-    
     static var itemTextColor: Color {
         return .white
+    }
+    
+    static var backgroundText: Color {
+        return colorSet(.backgroundText)
     }
     
     static var tabbar: Color {
         return colorSet(.tabbarColor)
     }
     
-    enum SystemColorsName: String {
-        case theme = "theme"
-        case background = "background"
-        case tabbarColor = "tabbar_color"
+    //white when darkmode on, black when lightmode on
+    static var tabbarColorReversed: Color {
+        return colorSet(.tabbarColorReversed)
     }
-    
+}
+
+enum SystemColorsName: String {
+    case theme = "theme"
+    case background = "background"
+    case tabbarColor = "tabbar_color"
+    case tabbarColorReversed = "tabbar_color_reversed"
+    case backgroundText = "background_text_color"
 }
 
 extension SystemColors {
@@ -44,3 +51,5 @@ extension SystemColors {
         return Color(colorName.rawValue)
     }
 }
+
+
