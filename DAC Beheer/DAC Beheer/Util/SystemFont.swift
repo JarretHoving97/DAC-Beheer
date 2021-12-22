@@ -61,7 +61,7 @@ struct ScaledFont: ViewModifier {
     
     func body(content: Content) -> some View {
         let scaledSize = UIFontMetrics.default.scaledValue(for: size.rawValue)
-        print("scaledSize: \(scaledSize), name: \(name.rawValue)")
+//        print("scaledSize: \(scaledSize), name: \(name.rawValue)")
         return content.font(.custom(name.rawValue, size: scaledSize))
     }
 }

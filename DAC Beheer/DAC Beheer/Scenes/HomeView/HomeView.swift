@@ -56,7 +56,6 @@ struct HomeView: View {
         .navigationBarHidden(true)
         .foregroundColor(SystemColors.theme1)
     }
-
 }
 
 struct SwiftUIView_Previews: PreviewProvider {

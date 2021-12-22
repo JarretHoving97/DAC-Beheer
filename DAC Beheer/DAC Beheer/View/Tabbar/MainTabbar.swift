@@ -22,7 +22,7 @@ struct MainTabbar: View {
                 case .issues:
                     Text("Issues")
                 case .verify:
-                    Text("Verify")
+                    VerifyNavigationView()
                 }
                 Spacer()
             }

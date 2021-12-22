@@ -33,4 +33,11 @@ struct Api {
             throw ApiError.missingData
         }
     }
+    
+    
+    static func getNewRegistrants(completion: @escaping (Result<[NewRegistrant], AFError>) -> Void) {
+        AF.request(Router.getNewRegistrant).responseDecodable { (response: DataResponse<[NewRegistrant], AFError>) in
+            completion(response.result)
+        }
+    }
 }
