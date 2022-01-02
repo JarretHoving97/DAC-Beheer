@@ -18,6 +18,9 @@
 		A324EE6C2761353000D1E1A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A324EE6B2761353000D1E1A2 /* Preview Assets.xcassets */; };
 		A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE73276135CD00D1E1A2 /* SystemColors.swift */; };
 		A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE75276136E000D1E1A2 /* SystemFont.swift */; };
+		A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6DF27822F1500F88524 /* JTextFieldView.swift */; };
+		A330A6E227822F2100F88524 /* JTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6E127822F2100F88524 /* JTextFieldModel.swift */; };
+		A330A6E4278248E000F88524 /* ExampleForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6E3278248DF00F88524 /* ExampleForm.swift */; };
 		A3489F4C2770C5F200F21685 /* Session+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F4B2770C5F200F21685 /* Session+Extension.swift */; };
 		A3489F4F2770C69600F21685 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F4E2770C69600F21685 /* Interceptor.swift */; };
 		A3489F512770C69F00F21685 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F502770C69F00F21685 /* Adapter.swift */; };
@@ -77,6 +80,9 @@
 		A324EE6B2761353000D1E1A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A324EE73276135CD00D1E1A2 /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
 		A324EE75276136E000D1E1A2 /* SystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemFont.swift; sourceTree = "<group>"; };
+		A330A6DF27822F1500F88524 /* JTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextFieldView.swift; sourceTree = "<group>"; };
+		A330A6E127822F2100F88524 /* JTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextFieldModel.swift; sourceTree = "<group>"; };
+		A330A6E3278248DF00F88524 /* ExampleForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleForm.swift; sourceTree = "<group>"; };
 		A3489F4B2770C5F200F21685 /* Session+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Extension.swift"; sourceTree = "<group>"; };
 		A3489F4E2770C69600F21685 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		A3489F502770C69F00F21685 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
@@ -237,6 +243,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		A330A6DE27822EFE00F88524 /* JTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A330A6DF27822F1500F88524 /* JTextFieldView.swift */,
+				A330A6E127822F2100F88524 /* JTextFieldModel.swift */,
+			);
+			path = JTextField;
+			sourceTree = "<group>";
+		};
 		A3489F4A2770C5E200F21685 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +333,7 @@
 		A34D37DA276284E8009D11F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A330A6DE27822EFE00F88524 /* JTextField */,
 				A3C10C3E2773C47E00B2CF50 /* NoDataFoundView */,
 				A352001327690A5500FF74BE /* PresentableFrame */,
 				A34D37D9276284DA009D11F2 /* Tabbar */,
@@ -413,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				A3E9F16F276E3D1A00361050 /* TeamNavigationView.swift */,
+				A330A6E3278248DF00F88524 /* ExampleForm.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -591,12 +608,14 @@
 				A321B8932770B47800FD53BB /* Environment.swift in Sources */,
 				A3F4A09427629EEC0041487F /* ViewRouter.swift in Sources */,
 				A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */,
+				A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */,
 				A3E9F16E276E3CFF00361050 /* MatchNavigationView.swift in Sources */,
 				A352001527690ADC00FF74BE /* PresentableFrame.swift in Sources */,
 				A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */,
 				A3C10C3B2773BECE00B2CF50 /* Extension+Date.swift in Sources */,
 				A3E9F172276E3D2700361050 /* NewsNavigationView.swift in Sources */,
 				A3489F512770C69F00F21685 /* Adapter.swift in Sources */,
+				A330A6E4278248E000F88524 /* ExampleForm.swift in Sources */,
 				A379D7552768FA4F00BCD05D /* HomeViewNavigator.swift in Sources */,
 				A383040A276E336A00B2B888 /* SearchBarView.swift in Sources */,
 				A3E9F170276E3D1A00361050 /* TeamNavigationView.swift in Sources */,
@@ -609,6 +628,7 @@
 				A3787EB72764F8B4009480A5 /* ScoreSquareView.swift in Sources */,
 				A34925782773A0EB00E6ADF4 /* RegistrantReusableView.swift in Sources */,
 				A352001A276936EA00FF74BE /* ReturnableView.swift in Sources */,
+				A330A6E227822F2100F88524 /* JTextFieldModel.swift in Sources */,
 				A3C10C392773BDC400B2CF50 /* String+Extensions.swift in Sources */,
 				A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */,
 				A34925752773A00900E6ADF4 /* VerifyRegistrantsView.swift in Sources */,

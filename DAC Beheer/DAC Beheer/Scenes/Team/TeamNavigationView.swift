@@ -16,7 +16,9 @@ struct TeamNavigationView: View {
                 .padding(.leading, 17)
                 .foregroundColor(SystemColors.backgroundText)
             
-            ScrollView {}// content
+            ScrollView {
+                ExampleForm()
+            }// content
         }
         .background(SystemColors.background)
     }

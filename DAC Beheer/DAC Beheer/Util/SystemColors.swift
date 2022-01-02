@@ -11,6 +11,21 @@ import UIKit
 
 struct SystemColors {
     
+    ///For custom textfield options
+    struct JTextField {
+        static var textFieldBackground: Color {
+            return SystemColors.colorSet(.textFieldBackground)
+        }
+        
+        static var textFieldBorder: Color {
+            return SystemColors.colorSet(.textFieldBorder)
+        }
+        
+        static var textFieldText: Color {
+            return SystemColors.colorSet(.textFieldText)
+        }
+    }
+    
     static var theme1: Color {
         return colorSet(.theme)
     }
@@ -43,6 +58,9 @@ enum SystemColorsName: String {
     case tabbarColor = "tabbar_color"
     case tabbarColorReversed = "tabbar_color_reversed"
     case backgroundText = "background_text_color"
+    case textFieldBackground = "textfield_background_color"
+    case textFieldBorder = "textField_border_color"
+    case textFieldText = "textfield_text_color"
 }
 
 extension SystemColors {
