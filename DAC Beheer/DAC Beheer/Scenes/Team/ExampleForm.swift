@@ -16,8 +16,7 @@ struct ExampleForm: View {
                 JTextFieldView("Geboorte")
                 JTextFieldView("Ja IDK")
             }
-            .padding(.trailing)
-            .padding(.leading)
+            .padding()
         }
     }
 }

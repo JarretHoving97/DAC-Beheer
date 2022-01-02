@@ -21,8 +21,12 @@ struct JTextFieldView: View {
     @State var text: String = ""
     @State var isSelected: Bool = false
     
-    var hasValue: Bool {
+   private var hasValue: Bool {
         return text != ""
+    }
+    
+    private var showBorder: Bool {
+        return isSelected
     }
     
     //add also contenViewType
@@ -34,7 +38,6 @@ struct JTextFieldView: View {
         VStack(alignment: .leading, spacing: 0){
             
             Text(title).themedFont(name: .bold, size: .subtitle)
-    
                 .foregroundColor(textColor)
                 .offset(y: isSelected ? 0 : 10)
                 .padding(.bottom, -5)
@@ -43,21 +46,25 @@ struct JTextFieldView: View {
               
             HStack(spacing: 0) {
                 TextField("", text: $text, onEditingChanged: { editing in
-                
+            
                     if !hasValue {
                         withAnimation(.easeInOut(duration: 0.4)) {
-                            
                             isSelected = editing
                         }
                     }
+                }, onCommit: {
+                    if !hasValue {
+                        isSelected = false
+                    }
                 })
+                    .foregroundColor(SystemColors.JTextField.textFieldText)
+                    .themedFont(name: .regular, size: .title)
                     .placeholder(when: !isSelected, placeholder: {
                         Text(isSelected ? "" : title)
                         .foregroundColor(SystemColors.JTextField.textFieldText)
                         .themedFont(name: .bold, size: .title)
                         .accentColor(textColor)
                       
-                        
                     })
                   
             }
@@ -73,7 +80,7 @@ struct JTextFieldView: View {
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(SystemColors.theme1 , lineWidth: isSelected ? 2 : 0)
+                .stroke(SystemColors.theme1 , lineWidth: showBorder ? 2 : 0)
         )
     }
 }
