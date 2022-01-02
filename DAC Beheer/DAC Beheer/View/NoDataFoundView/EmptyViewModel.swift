@@ -13,9 +13,10 @@ struct EmptyViewModel: View {
             Image(uiImage: NoContentModel.returnRandomEmptyImage())
             
             Text("Geen data gevonden..")
-                .themedFont(name: .extraBold, size: .large)
-                .foregroundColor(Color(hue: 0.0, saturation: 0.024, brightness: 0.872))
+                .themedFont(name: .semiBold, size: .largeValutaSub)
+                .foregroundColor(Color(hue: 0.0, saturation: 0.0, brightness: 0.965))
         }
+        .frame(width: 230, height: 200, alignment: .center)
         
     }
 }

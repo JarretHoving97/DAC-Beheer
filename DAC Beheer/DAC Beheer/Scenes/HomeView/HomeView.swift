@@ -23,14 +23,6 @@ struct HomeView: View {
 
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                HStack {
-                    HomeHeaderView()
-                        .frame(height: 237, alignment: .center)
-                        .cornerRadius(20)
-                        .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
-                }
-                .padding(.bottom, 21)
-                
                 LazyVGrid(columns: columns, spacing: 21) {
                     ForEach(MenuModel.menuItems, id: \.self) { item in
                         let model = MenuModel.getButtonForItem(option: item)
@@ -46,6 +38,23 @@ struct HomeView: View {
                                 .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
                         }
                     }
+                    Button {
+                        withAnimation {
+//                            viewRouter.popOverPages =
+                        }
+                    } label: {
+                        SettingsView()
+                            .background(SystemColors.background)
+                            .cornerRadius(16)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(SystemColors.backgroundText, lineWidth: 2)
+                            )
+                            .frame(maxWidth: 169,  maxHeight: 153,   alignment: .center)
+                            .aspectRatio(1, contentMode: .fill)
+                           
+    
+                    }
                 }
                 .aspectRatio(1, contentMode: .fill)
                 Spacer()
@@ -54,7 +63,6 @@ struct HomeView: View {
             .padding(17)
         }
         .navigationBarHidden(true)
-        .foregroundColor(SystemColors.theme1)
     }
 }
 

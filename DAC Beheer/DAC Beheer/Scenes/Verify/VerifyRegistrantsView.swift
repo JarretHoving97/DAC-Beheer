@@ -23,7 +23,9 @@ struct VerifyRegistrantsView: View {
             }
             .background(SystemColors.background)
         } else {
+            Spacer()
             EmptyViewModel()
+            Spacer()
         }
     }
 }

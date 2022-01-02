@@ -46,6 +46,7 @@
 		A3830402276E27DE00B2B888 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830401276E27DE00B2B888 /* View+Extension.swift */; };
 		A3830404276E2AA300B2B888 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830403276E2AA300B2B888 /* UIColor+extension.swift */; };
 		A383040A276E336A00B2B888 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830409276E336A00B2B888 /* SearchBarView.swift */; };
+		A384DBCC2774913D0069685A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384DBCB2774913D0069685A /* SettingsView.swift */; };
 		A39420542767E47600BA5CC5 /* MenuButtonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */; };
 		A39420582767E81F00BA5CC5 /* MenuButtonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */; };
 		A3C10C392773BDC400B2CF50 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C10C382773BDC400B2CF50 /* String+Extensions.swift */; };
@@ -104,6 +105,7 @@
 		A3830401276E27DE00B2B888 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		A3830403276E2AA300B2B888 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		A3830409276E336A00B2B888 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A384DBCB2774913D0069685A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsModel.swift; sourceTree = "<group>"; };
 		A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsViewModel.swift; sourceTree = "<group>"; };
 		A3C10C382773BDC400B2CF50 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -316,7 +318,7 @@
 		A34D37DA276284E8009D11F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A3C10C3E2773C47E00B2CF50 /* EmptyView */,
+				A3C10C3E2773C47E00B2CF50 /* NoDataFoundView */,
 				A352001327690A5500FF74BE /* PresentableFrame */,
 				A34D37D9276284DA009D11F2 /* Tabbar */,
 				A3520019276936E900FF74BE /* ReturnableView.swift */,
@@ -327,6 +329,7 @@
 		A34D37DB276285D4009D11F2 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				A384DBCA277491110069685A /* SettingsView */,
 				A39420522767E45500BA5CC5 /* CollectionGridModel */,
 				A3787EB32764F697009480A5 /* Header */,
 				A34D37DC276285E3009D11F2 /* HomeView.swift */,
@@ -423,6 +426,14 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		A384DBCA277491110069685A /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				A384DBCB2774913D0069685A /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		A39420522767E45500BA5CC5 /* CollectionGridModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,13 +443,13 @@
 			path = CollectionGridModel;
 			sourceTree = "<group>";
 		};
-		A3C10C3E2773C47E00B2CF50 /* EmptyView */ = {
+		A3C10C3E2773C47E00B2CF50 /* NoDataFoundView */ = {
 			isa = PBXGroup;
 			children = (
 				A3C10C3F2773C49100B2CF50 /* EmptyView.swift */,
 				A3C10C412773C49E00B2CF50 /* EmptyViewModel.swift */,
 			);
-			path = EmptyView;
+			path = NoDataFoundView;
 			sourceTree = "<group>";
 		};
 		A3E9F173276E3E4500361050 /* NewsView */ = {
@@ -605,6 +616,7 @@
 				A3787EB52764F6A7009480A5 /* HomeHeaderView.swift in Sources */,
 				A39420582767E81F00BA5CC5 /* MenuButtonsViewModel.swift in Sources */,
 				A3489F582770D98F00F21685 /* URLSession.swift in Sources */,
+				A384DBCC2774913D0069685A /* SettingsView.swift in Sources */,
 				A3489F562770CA4F00F21685 /* Api.swift in Sources */,
 				A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */,
 				A3830404276E2AA300B2B888 /* UIColor+extension.swift in Sources */,
