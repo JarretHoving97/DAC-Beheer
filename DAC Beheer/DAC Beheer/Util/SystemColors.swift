@@ -59,7 +59,7 @@ enum SystemColorsName: String {
     case tabbarColorReversed = "tabbar_color_reversed"
     case backgroundText = "background_text_color"
     case textFieldBackground = "textfield_background_color"
-    case textFieldBorder = "textField_border_color"
+    case textFieldBorder = "textfield_border_color"
     case textFieldText = "textfield_text_color"
 }
 

@@ -63,9 +63,10 @@ struct JTextFieldView: View {
                     .foregroundColor(SystemColors.JTextField.textFieldText)
                     .themedFont(name: .regular, size: .title)
                     .placeholder(when: !isSelected, placeholder: {
-                        Text(isSelected ? "" : title)
+                        Text(title)
                             .foregroundColor(SystemColors.JTextField.textFieldText)
                             .themedFont(name: .bold, size: .title)
+                            .opacity(isSelected ? 0 : 1)
                             .accentColor(textColor)
                             .padding(.bottom, 10)
                     })
@@ -81,7 +82,7 @@ struct JTextFieldView: View {
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(SystemColors.theme1 , lineWidth: showBorder ? 2 : 0)
+                .stroke(SystemColors.JTextField.textFieldBorder , lineWidth: showBorder ? 2 : 0)
         )
     }
 }
