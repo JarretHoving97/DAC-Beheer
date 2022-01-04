@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ExampleForm: View {
+    
+    
+    
     var body: some View {
         ScrollView {
             VStack {
-                JTextFieldView("Voornaam")
-                JTextFieldView("Achternaam")
-                JTextFieldView("Geboorte")
-                JTextFieldView("Ja IDK")
+                JTextFieldView("Voornaam", type: .firstname)
+                JTextFieldView("Achternaam", type: .lastname)
+                JTextFieldView("Geboorte", type: .date)
+                JTextFieldView("Email", type: .email)
+                JTextFieldView("Postcode", type: .zip)
+                JTextFieldView("Telefoon", type: .phone)
             }
             .padding()
         }

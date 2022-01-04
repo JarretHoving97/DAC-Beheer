@@ -11,8 +11,9 @@ struct JTextFieldView: View {
     
     // Also responds as textfield title when highlightend
     var title = "Title"
+    var fieldType: FieldType = .regular
     
-   //font sizes
+    //font sizes
     let borderColor = SystemColors.JTextField.textFieldBorder
     let textColor = SystemColors.JTextField.textFieldText
     let background = SystemColors.JTextField.textFieldBackground
@@ -21,7 +22,7 @@ struct JTextFieldView: View {
     @State var text: String = ""
     @State var isSelected: Bool = false
     
-   private var hasValue: Bool {
+    private var hasValue: Bool {
         return text != ""
     }
     
@@ -30,8 +31,9 @@ struct JTextFieldView: View {
     }
     
     //add also contenViewType
-    init(_ title: String ) {
+    init(_ title: String, type: FieldType) {
         self.title = title
+        self.fieldType = type
     }
     
     var body: some View {
@@ -42,11 +44,11 @@ struct JTextFieldView: View {
                 .offset(y: isSelected ? 0 : 10)
                 .padding(.bottom, -5)
                 .opacity(!isSelected ? 0 : 1)
-                
-              
+            
+            
             HStack(spacing: 0) {
                 TextField("", text: $text, onEditingChanged: { editing in
-            
+                    
                     if !hasValue {
                         withAnimation(.easeInOut(duration: 0.4)) {
                             isSelected = editing
@@ -57,20 +59,19 @@ struct JTextFieldView: View {
                         isSelected = false
                     }
                 })
+                    .accentColor(SystemColors.JTextField.textFieldBorder)
                     .foregroundColor(SystemColors.JTextField.textFieldText)
                     .themedFont(name: .regular, size: .title)
                     .placeholder(when: !isSelected, placeholder: {
                         Text(isSelected ? "" : title)
-                        .foregroundColor(SystemColors.JTextField.textFieldText)
-                        .themedFont(name: .bold, size: .title)
-                        .accentColor(textColor)
-                      
+                            .foregroundColor(SystemColors.JTextField.textFieldText)
+                            .themedFont(name: .bold, size: .title)
+                            .accentColor(textColor)
+                            .padding(.bottom, 10)
                     })
-                  
+                    .keyboardType(keyboardType)
+                    .textContentType(textContentType)
             }
-        
-          Text("")
-                .frame(maxWidth: .infinity, alignment: .leading)
         }
         
         .frame(maxWidth: .infinity, minHeight: 59, alignment: .leading)
@@ -85,22 +86,89 @@ struct JTextFieldView: View {
     }
 }
 
+extension JTextFieldView {
+    
+    enum FieldType {
+        case username
+        case firstname
+        case lastname
+        case middlename
+        case password
+        case phone
+        case email
+        case zip
+        case regular
+        case date
+    }
+    
+
+    var keyboardType: UIKeyboardType {
+        switch fieldType {
+        
+        case .phone:
+            return .phonePad
+        case .email:
+            return .emailAddress
+        case .zip:
+            return .numbersAndPunctuation
+        default:
+            return .default
+        }
+    }
+    
+
+    var textContentType: UITextContentType {
+        switch fieldType {
+            
+        case .firstname:
+            return .givenName
+            
+        case .middlename:
+            return .middleName
+            
+        case .lastname:
+            return .familyName
+            
+        case .username:
+            return .username
+            
+        case .password:
+            return .password
+            
+        case .phone:
+            return .telephoneNumber
+            
+        case .email:
+            return .emailAddress
+            
+        case .zip:
+            return .postalCode
+            
+        case .date:
+            return .dateTime
+            
+        default:
+            return .name
+        }
+    }
+}
+
 
 extension View {
     func placeholder<Content: View>(
         when shouldShow: Bool,
         alignment: Alignment = .leading,
         @ViewBuilder placeholder: () -> Content) -> some View {
-
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
         }
-    }
 }
 
 struct JTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-       ExampleForm()
+        ExampleForm()
     }
 }
