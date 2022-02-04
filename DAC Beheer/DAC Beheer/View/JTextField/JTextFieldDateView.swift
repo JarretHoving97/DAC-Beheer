@@ -1,17 +1,18 @@
 //
-//  JTextFieldView.swift
+//  JTextFieldDateView.swift
 //  DAC Beheer
 //
-//  Created by Jarret Hoving on 02/01/2022.
+//  Created by Jarret Hoving on 04/01/2022.
 //
 
 import SwiftUI
 
-struct JTextFieldView: View {
+
+struct JTextFieldateView: View {
     
     // Also responds as textfield title when highlightend
     var title = "Title"
-    var fieldType: FieldType = .regular
+
     
     //font sizes
     let borderColor = SystemColors.JTextField.textFieldBorder
@@ -31,9 +32,8 @@ struct JTextFieldView: View {
     }
     
     //add also contenViewType
-    init(_ title: String, type: FieldType) {
+    init(_ title: String) {
         self.title = title
-        self.fieldType = type
     }
     
     var body: some View {
@@ -70,8 +70,6 @@ struct JTextFieldView: View {
                             .accentColor(textColor)
                             .padding(.bottom, 10)
                     })
-                    .keyboardType(keyboardType)
-                    .textContentType(textContentType)
             }
         }
         
@@ -84,92 +82,5 @@ struct JTextFieldView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(SystemColors.JTextField.textFieldBorder , lineWidth: showBorder ? 2 : 0)
         )
-    }
-}
-
-extension JTextFieldView {
-    
-    enum FieldType {
-        case username
-        case firstname
-        case lastname
-        case middlename
-        case password
-        case phone
-        case email
-        case zip
-        case regular
-        case date
-    }
-    
-
-    var keyboardType: UIKeyboardType {
-        switch fieldType {
-        
-        case .phone:
-            return .phonePad
-        case .email:
-            return .emailAddress
-        case .zip:
-            return .numbersAndPunctuation
-        default:
-            return .default
-        }
-    }
-    
-
-    var textContentType: UITextContentType {
-        switch fieldType {
-            
-        case .firstname:
-            return .givenName
-            
-        case .middlename:
-            return .middleName
-            
-        case .lastname:
-            return .familyName
-            
-        case .username:
-            return .username
-            
-        case .password:
-            return .password
-            
-        case .phone:
-            return .telephoneNumber
-            
-        case .email:
-            return .emailAddress
-            
-        case .zip:
-            return .postalCode
-            
-        case .date:
-            return .dateTime
-            
-        default:
-            return .name
-        }
-    }
-}
-
-/// For TextFields placeholder
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-            
-            ZStack(alignment: alignment) {
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
-        }
-}
-
-struct JTextFieldView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExampleForm()
     }
 }

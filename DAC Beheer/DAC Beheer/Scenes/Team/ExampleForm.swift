@@ -16,6 +16,7 @@ struct ExampleForm: View {
             VStack {
                 JTextFieldView("Voornaam", type: .firstname)
                 JTextFieldView("Achternaam", type: .lastname)
+                
                 JTextFieldView("Geboorte", type: .date)
                 JTextFieldView("Email", type: .email)
                 JTextFieldView("Postcode", type: .zip)
