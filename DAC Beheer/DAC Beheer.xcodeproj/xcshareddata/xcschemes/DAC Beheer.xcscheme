@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FC533F30F3D6EB7F35CFBE2ED28DE00F"
-               BuildableName = "Pods_DAC_Beheer.framework"
-               BlueprintName = "Pods-DAC Beheer"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "A324EE602761352E00D1E1A2"
+               BuildableName = "DAC Beheer.app"
+               BlueprintName = "DAC Beheer"
+               ReferencedContainer = "container:DAC Beheer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A324EE602761352E00D1E1A2"
+            BuildableName = "DAC Beheer.app"
+            BlueprintName = "DAC Beheer"
+            ReferencedContainer = "container:DAC Beheer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A324EE602761352E00D1E1A2"
+            BuildableName = "DAC Beheer.app"
+            BlueprintName = "DAC Beheer"
+            ReferencedContainer = "container:DAC Beheer.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct NewsNavigationView: View {
+    
+    @StateObject var navigationController = NavigationRouter()
+    
     var body: some View {
-        VStack {
-            Text("Nieuws 🗞")
-                .themedFont(name: .extraBold, size: .large)
-                .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
-                .padding(.leading, 17)
-                .foregroundColor(SystemColors.backgroundText)
+        ZStack{
+            VStack {
+                Text("Nieuws 🗞")
+                    .themedFont(name: .extraBold, size: .large)
+                    .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
+                    .padding(.leading, 17)
+                    .foregroundColor(SystemColors.backgroundText)
+                
+                NewsListView(navigationView: navigationController)
+                
+            }
+            .background(SystemColors.background)
             
-            ScrollView {}// content
-        
+            NavigationsReturnableView(navigationViewRouter: navigationController) {
+                navigationController.currentPresentedView
+            }
         }
-        .background(SystemColors.background)
     }
 }
 

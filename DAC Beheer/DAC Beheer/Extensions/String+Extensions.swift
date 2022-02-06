@@ -23,11 +23,20 @@ extension String {
         formatter.dateFormat = dateFormat.rawValue
         let date = formatter.date(from: self) ?? Date()
         
+ 
+        
         return date
     }
     
     func serverDateString(to format: DateFormat) -> String {
         let date = self.toDate(dateFormat: format)
+        
+        if date.isInToday {
+           return "Vandaag"
+        } else if date.isInYesterday {
+            return "Gisteren"
+        }
+        
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")

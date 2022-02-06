@@ -9,35 +9,59 @@ import Foundation
 import Alamofire
 import Network
 
-struct Api {
+struct Api {}
+
+// MARK: - Token authentication calls here
+extension Api {
     
-    enum ApiError: Error {
-           case invalidURL
-           case missingData
-       }
-    
-    static func fetchToken() async throws -> AuthToken {
+    struct Token {
         
-        let session = URLSession.shared
+        enum ApiError: Error {
+               case invalidURL
+               case missingData
+           }
+        
+        static func fetchToken() async throws -> AuthToken {
+            
+            let session = URLSession.shared
 
-        guard let urlRequest = try? Router.login.asURLRequest() else {
-            throw ApiError.invalidURL
-        }
+            guard let urlRequest = try? Router.login.asURLRequest() else {
+                throw ApiError.invalidURL
+            }
 
-        do {
-            let (data, _) = try await session.data(for: urlRequest)
-            let jsonDecoder = JSONDecoder()
-            return try jsonDecoder.decode(AuthToken.self, from: data)
-        } catch {
-            print(error.localizedDescription)
-            throw ApiError.missingData
+            do {
+                let (data, _) = try await session.data(for: urlRequest)
+                let jsonDecoder = JSONDecoder()
+                return try jsonDecoder.decode(AuthToken.self, from: data)
+            } catch {
+                Log.debug(error.localizedDescription)
+                throw ApiError.missingData
+            }
         }
     }
+}
+// MARK: - User verify calls here
+extension Api {
     
+    struct Verify {
+        
+        // get new registrants
+        static func getNewRegistrants(completion: @escaping (Result<[NewRegistrant], AFError>) -> Void) {
+            AF.request(Router.getNewRegistrant).responseDecodable { (response: DataResponse<[NewRegistrant], AFError>) in
+                completion(response.result)
+            }
+        }
+    }
+}
+
+// MARK: - News calls here
+extension Api {
     
-    static func getNewRegistrants(completion: @escaping (Result<[NewRegistrant], AFError>) -> Void) {
-        AF.request(Router.getNewRegistrant).responseDecodable { (response: DataResponse<[NewRegistrant], AFError>) in
-            completion(response.result)
+    struct News {
+        static func getNewsPost(completion: @escaping (Result<NewsListModel, AFError>) -> Void) {
+            AF.request(Router.getNewsArticles(itemsPerPage: 10, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
+                completion(response.result)
+            }
         }
     }
 }

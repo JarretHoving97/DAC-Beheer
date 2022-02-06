@@ -22,7 +22,7 @@ struct HomeViewNavigator {
         case .teams:
             return AnyView(TeamNavigationView())
         default:
-            print("no view found")
+            Log.debug("no view found")
             return nil
         }
     }

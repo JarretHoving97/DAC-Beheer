@@ -11,7 +11,6 @@ import SwiftUI
 struct DAC_BeheerApp: App {
     
     @StateObject var viewRouter = ViewRouter()
-
     
     var body: some Scene {
         WindowGroup {

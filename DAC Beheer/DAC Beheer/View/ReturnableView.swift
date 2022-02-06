@@ -9,7 +9,7 @@ import SwiftUI
 
 /// ReturnableView is a frame that returns a view. It will be om top of ContentView
 /// Tis will accept anyview so you can pass in anything u want.
-struct ReturnableView<Content>: View where Content: View{
+struct ReturnableView<Content>: View where Content: View {
     
     @StateObject var viewRouter: ViewRouter
     var content: () -> Content

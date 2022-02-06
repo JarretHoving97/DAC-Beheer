@@ -17,13 +17,13 @@ class VerifyModel: ObservableObject {
     }
     
     private func getRegistrants() {
-        Api.getNewRegistrants {[weak self] result in
+        Api.Verify.getNewRegistrants {[weak self] result in
             switch result {
             case .success(let result):
                 self?.registrants = result
     
             case .failure(let error):
-                print("error fetching users \(error.localizedDescription)")
+                Log.debug("error fetching users \(error.localizedDescription)")
             }
         }
     }

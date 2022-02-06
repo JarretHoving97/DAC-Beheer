@@ -7,12 +7,26 @@
 
 import Foundation
 import Alamofire
+import CoreVideo
+
+enum EndpointType {
+    case app
+    case dashboard
+    
+    
+}
 
 enum Router: URLRequestConvertible {
     
+    // MARK: - USERS
     case getNewRegistrant
     case verifyRegistrant(id: String)
     case deleteReigstrant(id: String)
+    
+    // MARK: - News
+    
+    case postNewsArticle
+    case getNewsArticles(itemsPerPage: Int, currentPage: Int)
     
     case login
     
@@ -22,19 +36,30 @@ enum Router: URLRequestConvertible {
     
     var urlExtension: String {
         switch self {
+            
+            // MARK: USERS
         case .getNewRegistrant:
-            return "/registrations"
+            return "verify/registrations"
         case .verifyRegistrant(id: let id):
-            return "/appuser/\(id)"
+            return "verify/appuser/\(id)"
         case .deleteReigstrant(id: let id):
-            return "/registrations/\(id)"
+            return "verify/registrations/\(id)"
         case .login:
-            return "/admin/login"
+            return "admin/login"
+            
+            // MARK: NEWS
+        case .getNewsArticles(itemsPerPage: let pageCount, currentPage: let page):
+            return "news/all/pageCount/\(pageCount)/page/\(page)"
+            
+        case .postNewsArticle:
+            return "news/add"
         }
     }
-        
+    
     var method: HTTPMethod {
         switch self {
+            
+            // MARK: - USERS
         case .getNewRegistrant:
             return .get
             
@@ -44,21 +69,23 @@ enum Router: URLRequestConvertible {
         case .deleteReigstrant:
             return .delete
             
+            // MARK: - NEWS
+        case .getNewsArticles:
+            return .get
+            
+            
         default:
             ///Post request are propably
             ///the most common. If not, change it to make the code easier
             return .post
         }
     }
-    
+
     func asURLRequest() throws -> URLRequest {
         let url: URL = try baseUrl.asURL().appendingPathComponent(urlExtension)
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
-  
-
-        print(urlRequest)
         return urlRequest
     }
-
+    
 }
