@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Build a view on top of tabbar views
 /// set viewRouter.popOverPages to .clear to remove any view ad return to tabbar
-struct PresentableFrame: View {
+struct MainNavigation: View {
     @StateObject var viewRouter: ViewRouter
     
     var body: some View {
@@ -18,13 +18,13 @@ struct PresentableFrame: View {
     }
     
     var viewIsEmpty: Bool {
-        return viewRouter.popOverPages == .clear
+        return viewRouter.rootView == .clear
     }
     
     @ViewBuilder
     func contentBuilder() -> some View {
         ReturnableView(viewRouter: viewRouter) {
-            HomeViewNavigator.selectMenuItem(viewRouter.popOverPages)
+            RootViewNavigator.selectMenuItem(viewRouter.rootView, viewRouter: viewRouter)
         }
     }
 }

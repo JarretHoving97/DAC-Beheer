@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NewsNavigationView: View {
-    
+
+    @StateObject var viewRouter: ViewRouter
     @StateObject var navigationController = NavigationRouter()
     
     var body: some View {
@@ -20,12 +21,12 @@ struct NewsNavigationView: View {
                     .padding(.leading, 17)
                     .foregroundColor(SystemColors.backgroundText)
                 
-                NewsListView(navigationView: navigationController)
+                NewsListView(viewRouter: viewRouter, navigationView: navigationController)
                 
             }
             .background(SystemColors.background)
             
-            NavigationsReturnableView(navigationViewRouter: navigationController) {
+            NavigationsReturnableView(navigationViewRouter: navigationController, viewRouter: viewRouter) {
                 navigationController.currentPresentedView
             }
         }
@@ -34,6 +35,6 @@ struct NewsNavigationView: View {
 
 struct NewsNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsNavigationView()
+        ContentView(viewRouter: ViewRouter())
     }
 }

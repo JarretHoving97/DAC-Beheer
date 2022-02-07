@@ -8,8 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct HomeViewNavigator {
-   static func selectMenuItem(_ option: MenuOption) -> AnyView? {
+struct RootViewNavigator {
+    
+    static func selectMenuItem(_ option: MenuOption, viewRouter: ViewRouter) -> AnyView? {
+    
         switch option {
         case .users:
             return AnyView(UserNavigation())
@@ -18,7 +20,7 @@ struct HomeViewNavigator {
         case .matches:
             return AnyView(MatchNavigationView())
         case .news:
-            return AnyView(NewsNavigationView())
+            return AnyView(NewsNavigationView(viewRouter: viewRouter))
         case .teams:
             return AnyView(TeamNavigationView())
         default:

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewsListView: View {
     
+    @StateObject var viewRouter: ViewRouter
     @ObservedObject var viewModel = NewsListViewModel()
     @StateObject var navigationView: NavigationRouter
     
@@ -19,6 +20,7 @@ struct NewsListView: View {
                     Button {
                         navigationView.addAndPresent(AnyView(NewsDetailView()))
                         navigationView.present()
+                        viewRouter.isPresenting = true
                     } label: {
                         NewsRepeatableView(newsItem: newsItem)
                     }
@@ -36,8 +38,8 @@ struct NewsListView: View {
     }
 }
 
-struct NewsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsListView(navigationView: NavigationRouter())
-    }
-}
+//struct NewsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        NewsListView(navigationView: NavigationRouter())
+//    }
+//}

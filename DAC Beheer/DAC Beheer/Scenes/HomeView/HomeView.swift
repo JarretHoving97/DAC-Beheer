@@ -28,7 +28,7 @@ struct HomeView: View {
                         let model = MenuModel.getButtonForItem(option: item)
                         Button {
                             withAnimation {
-                                viewRouter.popOverPages = item
+                                viewRouter.rootView = item
                             }
                         } label: {
                             MenuButtonsViewModel(model: model)

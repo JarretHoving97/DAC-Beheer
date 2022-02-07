@@ -10,13 +10,11 @@ import SwiftUI
 class NavigationRouter: ObservableObject {
     
     var viewsToPresent: [AnyView] = []
-    
     @Published private(set) var currentViewIndex: Int = 0 //always start from firstIndex
     @Published var currentPresentedView: AnyView?
     
     @Published private(set) var isPresenting: Bool = false
     
-
     public func present() {
         isPresenting = true
     }
@@ -63,8 +61,10 @@ class NavigationRouter: ObservableObject {
 /// ReturnableView is a frame that returns a view. It will be om top of ContentView
 /// Tis will accept anyview so you can pass in anything u want.
 struct NavigationsReturnableView<Content>: View where Content: View {
-    
+
     @StateObject var navigationViewRouter: NavigationRouter
+    @StateObject var viewRouter: ViewRouter
+    
     var content: () -> Content
     
     var views: Content {
@@ -85,6 +85,7 @@ struct NavigationsReturnableView<Content>: View where Content: View {
                         Spacer()
                         Button {
                             withAnimation {
+                                viewRouter.isPresenting = false
                                 navigationViewRouter.close()
                             }
                         } label: {

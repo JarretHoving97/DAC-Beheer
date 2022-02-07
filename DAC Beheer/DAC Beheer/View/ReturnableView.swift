@@ -19,7 +19,7 @@ struct ReturnableView<Content>: View where Content: View {
     }
     
     var hasViews: Bool {
-        return viewRouter.popOverPages != .clear
+        return viewRouter.rootView != .clear
     }
     
     @ViewBuilder
@@ -27,27 +27,39 @@ struct ReturnableView<Content>: View where Content: View {
         ZStack {
             if hasViews {
                 views
-                VStack{
-                    HStack {
+                    if !viewRouter.isPresenting {
+                        VStack {
+                        NavigationBarView(viewRouter: viewRouter)
                         Spacer()
-                        Button {
-                            withAnimation {
-                                viewRouter.popOverPages = .clear
-                            }
-                        } label: {
-                            Image("ic_cross_image")
-                                .renderingMode(.template)
-                                .tint(SystemColors.backgroundText)
-                                .padding(.trailing, 20)
-                                
-                             
-                        }
-                        .padding(.top, 12)
                     }
-                    Spacer()
                 }
             }
         }
+    }
+}
+
+struct NavigationBarView: View {
+    
+    @StateObject var viewRouter: ViewRouter
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Button {
+                withAnimation {
+                    viewRouter.rootView = .clear
+                }
+            } label: {
+                Image("ic_cross_image")
+                    .renderingMode(.template)
+                    .tint(SystemColors.backgroundText)
+                    .padding(.trailing, 20)
+                    
+                 
+            }
+            .padding(.top, 12)
+        }
+
     }
 }
 
