@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct NewsDetailView: View {
+    
+    let newsTitle: String
+    let content: String
+    let date: String
+    
+    var image: UIImage?
+    
+    let spacing: CGFloat = 4
+    
     var body: some View {
         GeometryReader { geo in
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    titleSectionView(title: "Bericht titel:", font: (name: .extraBold, size: .large))
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: spacing) {
+                    titleSectionView(title: "Bericht titel:", font: (name: .extraBold, size: .small))
                     HStack {
                        
-                        Text("Nieuws artikel Titel Maar dan nog wat langer want text moet wel Dynamisch zijn")
+                        Text(newsTitle)
                             .themedFont(name: .bold, size: .title)
                             .frame(width: UIScreen.main.bounds.size.width - 24, alignment: .leading)
                             .padding(.leading, 17)
                         Spacer()
                     }
-                    titleSectionView(title: "Foto(s):", font: (name: .extraBold, size: .largeValutaSub))
+                    titleSectionView(title: "Foto(s):", font: (name: .extraBold, size: .small))
                     HStack {
                         Spacer()
                             Image("example_2")
@@ -30,16 +39,16 @@ struct NewsDetailView: View {
                                 .frame(width: geo.size.width * 0.9)
                         Spacer()
                     }
-                    titleSectionView(title: "Content:", font: (name: .extraBold, size: .largeValutaSub))
+                    titleSectionView(title: "Content:", font: (name: .extraBold, size: .small))
                     HStack {
-                        Text("ommodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.")
+                        Text(content)
                             .themedFont(name: .regular, size: .regular)
                             .padding(.leading, 17)
                         Spacer()
                     }
-                    titleSectionView(title: "Geplaatst op datum:", font: (name: .extraBold, size: .largeValutaSub))
+                    titleSectionView(title: "Geplaatst op datum:", font: (name: .extraBold, size: .small))
                     HStack {
-                        Text("12-06-2022")
+                        Text(date.serverDateString(to: .simpleFormat))
                             .themedFont(name: .regular, size: .regular)
                             .padding(.leading, 17)
                     }
@@ -62,12 +71,5 @@ struct titleSectionView: View {
                 .themedFont(name: font.name, size: font.size)
         }
         .padding(.leading, 17)
-    }
-}
-
-
-struct NewsDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsDetailView()
     }
 }

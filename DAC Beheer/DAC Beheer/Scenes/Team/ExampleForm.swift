@@ -13,15 +13,7 @@ struct ExampleForm: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                JTextFieldView("Voornaam", type: .firstname)
-                JTextFieldView("Achternaam", type: .lastname)
-                
-                JTextFieldView("Geboorte", type: .date)
-                JTextFieldView("Email", type: .email)
-                JTextFieldView("Postcode", type: .zip)
-                JTextFieldView("Telefoon", type: .phone)
-            }
+            VStack {}
             .padding()
         }
     }

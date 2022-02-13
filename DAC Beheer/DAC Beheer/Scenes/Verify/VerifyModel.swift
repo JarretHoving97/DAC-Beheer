@@ -20,6 +20,7 @@ class VerifyModel: ObservableObject {
         Api.Verify.getNewRegistrants {[weak self] result in
             switch result {
             case .success(let result):
+                
                 self?.registrants = result
     
             case .failure(let error):

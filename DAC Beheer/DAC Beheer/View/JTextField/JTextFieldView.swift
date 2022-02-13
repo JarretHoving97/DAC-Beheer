@@ -10,8 +10,8 @@ import SwiftUI
 struct JTextFieldView: View {
     
     // Also responds as textfield title when highlightend
-    var title = "Title"
-    var fieldType: FieldType = .regular
+    var title: String
+    var fieldType: FieldType
     
     //font sizes
     let borderColor = SystemColors.JTextField.textFieldBorder
@@ -19,7 +19,7 @@ struct JTextFieldView: View {
     let background = SystemColors.JTextField.textFieldBackground
     
     //binding
-    @State var text: String = ""
+    @Binding var text: String
     @State var isSelected: Bool = false
     
     private var hasValue: Bool {
@@ -29,13 +29,7 @@ struct JTextFieldView: View {
     private var showBorder: Bool {
         return isSelected
     }
-    
-    //add also contenViewType
-    init(_ title: String, type: FieldType) {
-        self.title = title
-        self.fieldType = type
-    }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             
@@ -75,7 +69,7 @@ struct JTextFieldView: View {
             }
         }
         
-        .frame(maxWidth: .infinity, minHeight: 59, alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: 59, maxHeight: .infinity, alignment: .leading)
         .padding(.trailing)
         .padding(.leading)
         .background(SystemColors.JTextField.textFieldBackground)
@@ -118,7 +112,7 @@ extension JTextFieldView {
     }
     
 
-    var textContentType: UITextContentType {
+    var textContentType: UITextContentType? {
         switch fieldType {
             
         case .firstname:
@@ -149,7 +143,7 @@ extension JTextFieldView {
             return .dateTime
             
         default:
-            return .name
+            return nil
         }
     }
 }

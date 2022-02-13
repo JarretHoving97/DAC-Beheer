@@ -24,8 +24,7 @@ enum Router: URLRequestConvertible {
     case deleteReigstrant(id: String)
     
     // MARK: - News
-    
-    case postNewsArticle
+    case postNewsArticle(content: NewsPost)
     case getNewsArticles(itemsPerPage: Int, currentPage: Int)
     
     case login
@@ -50,9 +49,18 @@ enum Router: URLRequestConvertible {
             // MARK: NEWS
         case .getNewsArticles(itemsPerPage: let pageCount, currentPage: let page):
             return "news/all/pageCount/\(pageCount)/page/\(page)"
-            
         case .postNewsArticle:
             return "news/add"
+        }
+    }
+    
+    var parameters: Parameters {
+        
+        switch self {
+        case .postNewsArticle(content: let post):
+            return ["title": post.title, "content": post.content]
+        default:
+            return [:]
         }
     }
     
@@ -85,6 +93,7 @@ enum Router: URLRequestConvertible {
         let url: URL = try baseUrl.asURL().appendingPathComponent(urlExtension)
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         return urlRequest
     }
     

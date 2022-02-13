@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import Network
+import UIKit
 
 struct Api {}
 
@@ -60,6 +61,14 @@ extension Api {
     struct News {
         static func getNewsPost(completion: @escaping (Result<NewsListModel, AFError>) -> Void) {
             AF.request(Router.getNewsArticles(itemsPerPage: 10, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
+                completion(response.result)
+            }
+        }
+        
+        static func postNewsArticle(title: String, content: String, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+        
+            let post = NewsPost(title: title, content: content)
+            AF.request(Router.postNewsArticle(content: post)).responseDecodable { (response: DataResponse<SuccessResponse, AFError> ) in
                 completion(response.result)
             }
         }

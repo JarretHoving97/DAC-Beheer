@@ -11,16 +11,24 @@ import SwiftUI
 
 struct AddButtonView: View {
     
+    let systemName: String //"note.text.badge.plus"
     
     var body: some View {
         VStack {
-            Spacer()
             HStack {
-                Spacer()
-                Circle()
-                .fill(SystemColors.theme1)
-                
-                .frame(width: 100, height: 100, alignment: .trailing)
+                ZStack {
+                    Circle()
+                    .fill(SystemColors.background)
+                    .frame(width: 62, height: 62, alignment: .trailing)
+                    
+                    Image(systemName: systemName)
+                        .resizable()
+                        .frame(width: 32, height: 28, alignment: .center)
+                        .padding(.leading, 5)
+                        .foregroundColor(SystemColors.theme1)
+                        
+                        
+                }
             }
         }
     }
@@ -28,7 +36,7 @@ struct AddButtonView: View {
 
 struct AddButtonView_Previews: PreviewProvider {
     static var previews: some View {
-     AddButtonView()
+     AddButtonView(systemName: "note.text.badge.plus")
          
     }
 }

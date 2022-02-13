@@ -18,9 +18,13 @@ struct NewsListView: View {
             ScrollView(showsIndicators: false) {
                 ForEach(viewModel.newsList, id: \.self) { newsItem in
                     Button {
-                        navigationView.addAndPresent(AnyView(NewsDetailView()))
-                        navigationView.present()
-                        viewRouter.isPresenting = true
+                        
+                        withAnimation {
+                            navigationView.addAndPresent(AnyView(NewsDetailView(newsTitle: newsItem.title, content: newsItem.content, date: newsItem
+                                                                                    .createdAt)))
+                            navigationView.present()
+                            viewRouter.isPresenting = true
+                        }
                     } label: {
                         NewsRepeatableView(newsItem: newsItem)
                     }
@@ -37,9 +41,3 @@ struct NewsListView: View {
         }
     }
 }
-
-//struct NewsListView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        NewsListView(navigationView: NavigationRouter())
-//    }
-//}

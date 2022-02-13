@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C6F5CEC421F115794389836 /* Pods_DAC_Beheer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAB87C674EF0C810EA42E4C /* Pods_DAC_Beheer.framework */; };
+		A31D635D27B7B2DC00ABA815 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */; };
 		A31FFFDB2773815300CF456C /* VerifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31FFFDA2773815300CF456C /* VerifyModel.swift */; };
 		A31FFFDE277381B200CF456C /* NewRegistrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31FFFDD277381B200CF456C /* NewRegistrant.swift */; };
 		A321B8912770B45700FD53BB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321B8902770B45700FD53BB /* Router.swift */; };
@@ -21,6 +22,7 @@
 		A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6DF27822F1500F88524 /* JTextFieldView.swift */; };
 		A330A6E227822F2100F88524 /* JTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6E127822F2100F88524 /* JTextFieldModel.swift */; };
 		A330A6E4278248E000F88524 /* ExampleForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330A6E3278248DF00F88524 /* ExampleForm.swift */; };
+		A3478AB627B9109400BE36D3 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3478AB527B9109400BE36D3 /* ImagePickerView.swift */; };
 		A3489F4C2770C5F200F21685 /* Session+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F4B2770C5F200F21685 /* Session+Extension.swift */; };
 		A3489F4F2770C69600F21685 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F4E2770C69600F21685 /* Interceptor.swift */; };
 		A3489F512770C69F00F21685 /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3489F502770C69F00F21685 /* Adapter.swift */; };
@@ -49,6 +51,10 @@
 		A3830404276E2AA300B2B888 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830403276E2AA300B2B888 /* UIColor+extension.swift */; };
 		A383040A276E336A00B2B888 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830409276E336A00B2B888 /* SearchBarView.swift */; };
 		A384DBCC2774913D0069685A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384DBCB2774913D0069685A /* SettingsView.swift */; };
+		A38B9CBF27B28470007A112B /* JTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38B9CBE27B28470007A112B /* JTextView.swift */; };
+		A38E93ED27B27ED60009D159 /* AddNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */; };
+		A38E93F127B27F3D0009D159 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */; };
+		A38E93F627B27FE70009D159 /* AddNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E93F527B27FE70009D159 /* AddNewsViewModel.swift */; };
 		A39420542767E47600BA5CC5 /* MenuButtonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */; };
 		A39420582767E81F00BA5CC5 /* MenuButtonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */; };
 		A3C10C392773BDC400B2CF50 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C10C382773BDC400B2CF50 /* String+Extensions.swift */; };
@@ -79,6 +85,7 @@
 		0DAB87C674EF0C810EA42E4C /* Pods_DAC_Beheer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DAC_Beheer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26203B6E176CA3771BC4C93D /* Pods-DAC Beheer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAC Beheer.debug.xcconfig"; path = "Target Support Files/Pods-DAC Beheer/Pods-DAC Beheer.debug.xcconfig"; sourceTree = "<group>"; };
 		2800F0EBD31CD9339D84289A /* Pods-DAC Beheer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAC Beheer.release.xcconfig"; path = "Target Support Files/Pods-DAC Beheer/Pods-DAC Beheer.release.xcconfig"; sourceTree = "<group>"; };
+		A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		A31FFFDA2773815300CF456C /* VerifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyModel.swift; sourceTree = "<group>"; };
 		A31FFFDD277381B200CF456C /* NewRegistrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrant.swift; sourceTree = "<group>"; };
 		A321B8902770B45700FD53BB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -93,6 +100,7 @@
 		A330A6DF27822F1500F88524 /* JTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextFieldView.swift; sourceTree = "<group>"; };
 		A330A6E127822F2100F88524 /* JTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextFieldModel.swift; sourceTree = "<group>"; };
 		A330A6E3278248DF00F88524 /* ExampleForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleForm.swift; sourceTree = "<group>"; };
+		A3478AB527B9109400BE36D3 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		A3489F4B2770C5F200F21685 /* Session+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Extension.swift"; sourceTree = "<group>"; };
 		A3489F4E2770C69600F21685 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		A3489F502770C69F00F21685 /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
@@ -121,6 +129,10 @@
 		A3830403276E2AA300B2B888 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		A3830409276E336A00B2B888 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A384DBCB2774913D0069685A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A38B9CBE27B28470007A112B /* JTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextView.swift; sourceTree = "<group>"; };
+		A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsArticleView.swift; sourceTree = "<group>"; };
+		A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
+		A38E93F527B27FE70009D159 /* AddNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewModel.swift; sourceTree = "<group>"; };
 		A39420532767E47600BA5CC5 /* MenuButtonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsModel.swift; sourceTree = "<group>"; };
 		A39420572767E81F00BA5CC5 /* MenuButtonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsViewModel.swift; sourceTree = "<group>"; };
 		A3C10C382773BDC400B2CF50 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -191,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				A31FFFDD277381B200CF456C /* NewRegistrant.swift */,
+				A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,8 +282,17 @@
 				A330A6DF27822F1500F88524 /* JTextFieldView.swift */,
 				A330A6E127822F2100F88524 /* JTextFieldModel.swift */,
 				A3C5E63D27848F890060329C /* JTextFieldDateView.swift */,
+				A38B9CBE27B28470007A112B /* JTextView.swift */,
 			);
 			path = JTextField;
+			sourceTree = "<group>";
+		};
+		A3478AB427B9108200BE36D3 /* ImagePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				A3478AB527B9109400BE36D3 /* ImagePickerView.swift */,
+			);
+			path = ImagePickerView;
 			sourceTree = "<group>";
 		};
 		A3489F4A2770C5E200F21685 /* Helper */ = {
@@ -354,6 +376,8 @@
 		A34D37DA276284E8009D11F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A3478AB427B9108200BE36D3 /* ImagePickerView */,
+				A38E93EE27B27F2E0009D159 /* NavigationTitle */,
 				A3D3998027B1C13000292B06 /* AddButtonView */,
 				A3DB490427AFF24800122166 /* CustomNavigation */,
 				A3DB48FF27AFDCC300122166 /* ActivityIndicatorView */,
@@ -478,6 +502,23 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		A38E93EE27B27F2E0009D159 /* NavigationTitle */ = {
+			isa = PBXGroup;
+			children = (
+				A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */,
+			);
+			path = NavigationTitle;
+			sourceTree = "<group>";
+		};
+		A38E93F227B27FB50009D159 /* AddNewsArticle */ = {
+			isa = PBXGroup;
+			children = (
+				A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */,
+				A38E93F527B27FE70009D159 /* AddNewsViewModel.swift */,
+			);
+			path = AddNewsArticle;
+			sourceTree = "<group>";
+		};
 		A39420522767E45500BA5CC5 /* CollectionGridModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +556,7 @@
 		A3DB48F227ADD0DC00122166 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A38E93F227B27FB50009D159 /* AddNewsArticle */,
 				A3DB48ED27ADCF4000122166 /* NewRepeatableView.swift */,
 				A3DB48FD27AFDB9D00122166 /* NewsListView.swift */,
 				A3DB490227AFE68F00122166 /* NewsDetailView.swift */,
@@ -693,8 +735,10 @@
 				A3E9F16E276E3CFF00361050 /* MatchNavigationView.swift in Sources */,
 				A352001527690ADC00FF74BE /* MainNavigationView.swift in Sources */,
 				A3DB490327AFE68F00122166 /* NewsDetailView.swift in Sources */,
+				A3478AB627B9109400BE36D3 /* ImagePickerView.swift in Sources */,
 				A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */,
 				A3C10C3B2773BECE00B2CF50 /* Extension+Date.swift in Sources */,
+				A38E93F127B27F3D0009D159 /* NavigationTitleView.swift in Sources */,
 				A3DB48EE27ADCF4000122166 /* NewRepeatableView.swift in Sources */,
 				A3E9F172276E3D2700361050 /* NewsNavigationView.swift in Sources */,
 				A3489F512770C69F00F21685 /* Adapter.swift in Sources */,
@@ -704,10 +748,13 @@
 				A3E9F170276E3D1A00361050 /* TeamNavigationView.swift in Sources */,
 				A3489F4C2770C5F200F21685 /* Session+Extension.swift in Sources */,
 				A3C10C3D2773C2A200B2CF50 /* VerifyNavigationView.swift in Sources */,
+				A38E93ED27B27ED60009D159 /* AddNewsArticleView.swift in Sources */,
+				A38E93F627B27FE70009D159 /* AddNewsViewModel.swift in Sources */,
 				A3C10C402773C49100B2CF50 /* EmptyView.swift in Sources */,
 				A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */,
 				A379D7532768EC5B00BCD05D /* UsersView.swift in Sources */,
 				A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */,
+				A38B9CBF27B28470007A112B /* JTextView.swift in Sources */,
 				A3787EB72764F8B4009480A5 /* ScoreSquareView.swift in Sources */,
 				A34925782773A0EB00E6ADF4 /* RegistrantReusableView.swift in Sources */,
 				A352001A276936EA00FF74BE /* ReturnableView.swift in Sources */,
@@ -723,6 +770,7 @@
 				A3DB48F527ADD13A00122166 /* NewsListViewModel.swift in Sources */,
 				A3489F582770D98F00F21685 /* URLSession.swift in Sources */,
 				A384DBCC2774913D0069685A /* SettingsView.swift in Sources */,
+				A31D635D27B7B2DC00ABA815 /* ResponseModel.swift in Sources */,
 				A3489F562770CA4F00F21685 /* Api.swift in Sources */,
 				A3F4A0912762946B0041487F /* TabbarButton.swift in Sources */,
 				A3830404276E2AA300B2B888 /* UIColor+extension.swift in Sources */,
@@ -874,6 +922,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DAC-Beheer-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "DAC Beheer is toegang nodig tot uw foto album. Om Foto's up te loaden.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -906,6 +955,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DAC-Beheer-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "DAC Beheer is toegang nodig tot uw foto album. Om Foto's up te loaden.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

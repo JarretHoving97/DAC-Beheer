@@ -22,10 +22,27 @@ struct NewsNavigationView: View {
                     .foregroundColor(SystemColors.backgroundText)
                 
                 NewsListView(viewRouter: viewRouter, navigationView: navigationController)
-                
+            
             }
             .background(SystemColors.background)
-            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            navigationController.addAndPresent(AnyView(AddNewsArticleView(navigation: navigationController)))
+                            navigationController.present()
+                            viewRouter.isPresenting = true
+                        }
+                 
+                    } label: {
+                        AddButtonView(systemName: "note.text.badge.plus")
+                            .padding(30)
+                    }
+                }
+            }
+  
             NavigationsReturnableView(navigationViewRouter: navigationController, viewRouter: viewRouter) {
                 navigationController.currentPresentedView
             }
