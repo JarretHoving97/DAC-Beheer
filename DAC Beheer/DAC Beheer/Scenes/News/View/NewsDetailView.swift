@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct NewsDetailView: View {
     
     let newsTitle: String
     let content: String
     let date: String
-    
-    var image: UIImage?
+    let image: String?
     
     let spacing: CGFloat = 4
     
@@ -33,7 +33,8 @@ struct NewsDetailView: View {
                     titleSectionView(title: "Foto(s):", font: (name: .extraBold, size: .small))
                     HStack {
                         Spacer()
-                            Image("example_2")
+                  
+                        WebImage(url: WebImageHelper.imageUrl(image))
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width * 0.9)

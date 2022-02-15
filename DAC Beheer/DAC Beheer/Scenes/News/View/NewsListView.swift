@@ -21,7 +21,7 @@ struct NewsListView: View {
                         
                         withAnimation {
                             navigationView.addAndPresent(AnyView(NewsDetailView(newsTitle: newsItem.title, content: newsItem.content, date: newsItem
-                                                                                    .createdAt)))
+                                                                                    .createdAt, image: newsItem.image)))
                             navigationView.present()
                             viewRouter.isPresenting = true
                         }

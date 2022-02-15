@@ -7,5 +7,6 @@ target 'DAC Beheer' do
 
   # Pods for DAC Beheer
 	pod 'Alamofire'
+	pod 'SDWebImageSwiftUI'
 
 end

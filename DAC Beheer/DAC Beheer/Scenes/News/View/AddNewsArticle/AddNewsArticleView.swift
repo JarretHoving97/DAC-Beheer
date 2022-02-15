@@ -45,9 +45,6 @@ struct AddNewsArticleView: View {
                             .resizable()
                             .frame(width: 60, height: 46, alignment: .center)
                             .foregroundColor(SystemColors.backgroundText)
-                            
-
-                        
                         VStack {
                             image?
                                 .resizable()
@@ -81,7 +78,7 @@ struct AddNewsArticleView: View {
                 HStack {
                     Button {
                         // send data
-                        Api.News.postNewsArticle(title: title, content: content) { result in
+                        Api.News.postNewsArticle(title: title, content: content, image: inputImage) { result in
                             switch result {
                             case .failure(let error):
                                 Log.debug("error sending newsPost \(error.localizedDescription)")
@@ -91,7 +88,6 @@ struct AddNewsArticleView: View {
                                 withAnimation {
                                     navigation.close()
                                 }
-                             
                             }
                         }
                       

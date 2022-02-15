@@ -60,17 +60,43 @@ extension Api {
     
     struct News {
         static func getNewsPost(completion: @escaping (Result<NewsListModel, AFError>) -> Void) {
-            AF.request(Router.getNewsArticles(itemsPerPage: 10, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
+            AF.request(Router.getNewsArticles(itemsPerPage: 14, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
                 completion(response.result)
             }
         }
         
         static func postNewsArticle(title: String, content: String, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
-        
-            let post = NewsPost(title: title, content: content)
-            AF.request(Router.postNewsArticle(content: post)).responseDecodable { (response: DataResponse<SuccessResponse, AFError> ) in
-                completion(response.result)
-            }
+            
+            let parameters: Parameters = [
+                "title": title,
+                "content": content
+            ]
+            
+            let headers: HTTPHeaders = [
+                /* "Authorization": "your_access_token",  in case you need authorization header */
+                "Content-type": "multipart/form-data"
+            ]
+            
+            let url = "\(NetworkEnvironment.current.rawValue)/news/add"
+            
+    
+                AF.upload(multipartFormData: { multipartFormData in
+                    for (key, value) in parameters {
+                        multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+                    }
+                    
+                    // add image to header
+                    if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+                        
+                        multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
+                    }
+            
+                }, to: url, method: .post, headers: headers)
+                    .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                        completion(response.result)
+                    }
+
+            
         }
     }
 }
