@@ -13,6 +13,8 @@ class NavigationRouter: ObservableObject {
     @Published var currentPresentedView: AnyView?
     @Published private(set) var isPresenting: Bool = false
     
+    @State var presentingPopOver = false
+    
     var viewsToPresent: [AnyView] = []
     
     var didPushView: Bool {

@@ -13,6 +13,8 @@
 		A31FFFDE277381B200CF456C /* NewRegistrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31FFFDD277381B200CF456C /* NewRegistrant.swift */; };
 		A321B8912770B45700FD53BB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321B8902770B45700FD53BB /* Router.swift */; };
 		A321B8932770B47800FD53BB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321B8922770B47800FD53BB /* Environment.swift */; };
+		A3232DB927C4158D0071FD86 /* CheckMarkAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3232DB827C4158D0071FD86 /* CheckMarkAnimation.swift */; };
+		A3232DBE27C4237B0071FD86 /* CrossAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3232DBD27C4237B0071FD86 /* CrossAnimation.swift */; };
 		A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE642761352E00D1E1A2 /* DAC_BeheerApp.swift */; };
 		A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A324EE662761352E00D1E1A2 /* ContentView.swift */; };
 		A324EE692761353000D1E1A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A324EE682761353000D1E1A2 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 		A31FFFDD277381B200CF456C /* NewRegistrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrant.swift; sourceTree = "<group>"; };
 		A321B8902770B45700FD53BB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A321B8922770B47800FD53BB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A3232DB827C4158D0071FD86 /* CheckMarkAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkAnimation.swift; sourceTree = "<group>"; };
+		A3232DBD27C4237B0071FD86 /* CrossAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossAnimation.swift; sourceTree = "<group>"; };
 		A324EE612761352E00D1E1A2 /* DAC Beheer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DAC Beheer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A324EE642761352E00D1E1A2 /* DAC_BeheerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAC_BeheerApp.swift; sourceTree = "<group>"; };
 		A324EE662761352E00D1E1A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -221,6 +225,15 @@
 				A32C647D27BBE82F0006CCD9 /* WebImageUrlHelper.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A3232DB727C4155F0071FD86 /* StatusAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				A3232DB827C4158D0071FD86 /* CheckMarkAnimation.swift */,
+				A3232DBD27C4237B0071FD86 /* CrossAnimation.swift */,
+			);
+			path = StatusAnimations;
 			sourceTree = "<group>";
 		};
 		A324EE582761352E00D1E1A2 = {
@@ -377,6 +390,7 @@
 		A34D37DA276284E8009D11F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A3232DB727C4155F0071FD86 /* StatusAnimations */,
 				A3478AB427B9108200BE36D3 /* ImagePickerView */,
 				A38E93EE27B27F2E0009D159 /* NavigationTitle */,
 				A3D3998027B1C13000292B06 /* AddButtonView */,
@@ -735,9 +749,11 @@
 				A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */,
 				A3E9F16E276E3CFF00361050 /* MatchNavigationView.swift in Sources */,
 				A352001527690ADC00FF74BE /* MainNavigationView.swift in Sources */,
+				A3232DBE27C4237B0071FD86 /* CrossAnimation.swift in Sources */,
 				A3DB490327AFE68F00122166 /* NewsDetailView.swift in Sources */,
 				A3478AB627B9109400BE36D3 /* ImagePickerView.swift in Sources */,
 				A324EE74276135CD00D1E1A2 /* SystemColors.swift in Sources */,
+				A3232DB927C4158D0071FD86 /* CheckMarkAnimation.swift in Sources */,
 				A3C10C3B2773BECE00B2CF50 /* Extension+Date.swift in Sources */,
 				A38E93F127B27F3D0009D159 /* NavigationTitleView.swift in Sources */,
 				A3DB48EE27ADCF4000122166 /* NewRepeatableView.swift in Sources */,
