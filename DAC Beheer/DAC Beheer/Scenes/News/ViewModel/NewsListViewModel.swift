@@ -46,4 +46,8 @@ class NewsListViewModel: ObservableObject {
             self?.isLoading = false
         }
     }
+    
+    func reload() {
+        getCurrentNewsArticles()
+    }
 }

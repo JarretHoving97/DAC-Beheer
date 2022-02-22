@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddNewsArticleView: View {
     
+    var viewRouter: ViewRouter
     var navigation: NavigationRouter
     @State private var image: Image?
     @State private var showingImagePicker = false
@@ -108,6 +109,8 @@ struct AddNewsArticleView: View {
                                         
                                         withAnimation(Animation.easeOut(duration: 0.22).delay(1.2)) {
                                             navigation.close()
+                                            viewRouter.isPresenting = false // for showing the previous xmark
+                                            
                                         }
                                     }
                                 }
@@ -132,9 +135,7 @@ struct AddNewsArticleView: View {
                                 Text("Verstuur")
                                     .themedFont(name: .extraBold, size: .largeValutaSub)
                                     .foregroundColor(SystemColors.itemTextColor)
-                                    
                             }
-                    
                         }
                     }
                 }
@@ -173,9 +174,9 @@ struct NewsPost: Encodable {
     var content: String
 }
 
-
-struct AddNewsArticleView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddNewsArticleView(navigation: NavigationRouter())
-    }
-}
+//
+//struct AddNewsArticleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddNewsArticleView(viewRouter: ViewRouter, navigation: NavigationRouter())
+//    }
+//}

@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import Network
 import UIKit
+import AVFoundation
 
 struct Api {}
 
@@ -61,6 +62,12 @@ extension Api {
     struct News {
         static func getNewsPost(completion: @escaping (Result<NewsListModel, AFError>) -> Void) {
             AF.request(Router.getNewsArticles(itemsPerPage: 14, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
+                completion(response.result)
+            }
+        }
+        
+        static func deleteNewsPost(id: String, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            AF.request(Router.deleteNewsArticle(id: id)).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
                 completion(response.result)
             }
         }

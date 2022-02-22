@@ -26,6 +26,7 @@ enum Router: URLRequestConvertible {
     // MARK: - News
     case postNewsArticle(content: NewsPost)
     case getNewsArticles(itemsPerPage: Int, currentPage: Int)
+    case deleteNewsArticle(id: String)
     
     case login
     
@@ -51,6 +52,8 @@ enum Router: URLRequestConvertible {
             return "news/all/pageCount/\(pageCount)/page/\(page)"
         case .postNewsArticle:
             return "news/add"
+        case .deleteNewsArticle(id: let id):
+            return "news/delete/\(id)"
         }
     }
     
@@ -74,7 +77,7 @@ enum Router: URLRequestConvertible {
         case .verifyRegistrant:
             return .put
             
-        case .deleteReigstrant:
+        case .deleteReigstrant, .deleteNewsArticle:
             return .delete
             
             // MARK: - NEWS

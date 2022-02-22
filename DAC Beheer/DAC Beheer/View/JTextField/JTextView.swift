@@ -23,9 +23,6 @@ struct JTextView: View {
     //binding
     @Binding var text: String
     @State var isSelected: Bool = false
-    
-    // Because TextEditor uses UITextView underwater, and there is no settable
-    // property by Apple yet.
 
     private var hasValue: Bool {
         return text != ""
@@ -48,8 +45,14 @@ struct JTextView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(SystemColors.JTextField.textFieldBorder , lineWidth: showBorder ? 2 : 0)
                     )
+                   
                     .cornerRadius(10)
                     .frame(minHeight: 120)
+                    .onTapGesture {
+                        // SwiftUI Don't supper end editing in textEditor yet.
+                        // So here is a UIKit notification listener..
+                        hideKeyBoard()
+                    }
                 Text(text).opacity(0).padding(.all, 8)
                     .themedFont(name: .regular, size: .regular)
                     .foregroundColor(SystemColors.itemTextColor)
@@ -58,11 +61,16 @@ struct JTextView: View {
             UITextView.appearance().backgroundColor = UIColor(SystemColors.JTextField.textFieldBackground)
         }
     }
+    
+    private func hideKeyBoard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+    }
 }
 
 struct JTextView_Previews: PreviewProvider {
 
     static var previews: some View {
-        AddNewsArticleView(navigation: NavigationRouter())
+        AddNewsArticleView(viewRouter: ViewRouter(), navigation: NavigationRouter())
     }
 }
