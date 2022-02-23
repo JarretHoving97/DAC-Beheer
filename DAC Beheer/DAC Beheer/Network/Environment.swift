@@ -8,7 +8,8 @@
 import Foundation
 
 enum BaseUrl: String {
-    case local = "http://localhost:8080/dashboard"
+    case local = "http://localhost:8080/admin"
+    case testenv = "https://dacapp.azurewebsites.net/admin"
 }
 
 struct NetworkEnvironment {

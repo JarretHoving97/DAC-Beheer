@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewRegistrant: Codable, Hashable {
-    let id: String?
+    let id: String
     let firstName: String?
     let lastName: String?
     let verified: Bool?
@@ -32,13 +32,6 @@ struct NewRegistrant: Codable, Hashable {
     }
     
     var date: String {
-        let date = createdAt?.toDate(dateFormat: .serverDate)
-        if date?.isInToday ?? false {
-            return "Vandaag"
-        } else if date?.isInYesterday ?? false {
-            return "Gisteren"
-        } else {
-            return createdAt?.serverDateString(to: .elegant) ?? ""
-        }
+        return createdAt?.serverDateString(to: .elegant) ?? ""
     }
 }

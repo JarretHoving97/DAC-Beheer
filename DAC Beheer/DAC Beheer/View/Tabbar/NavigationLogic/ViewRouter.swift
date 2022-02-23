@@ -12,7 +12,13 @@ import SwiftUI
 //In practical terms, that means whenever an object with a property marked @Published is changed, all views using that object will be reloaded to reflect those changes.
 class ViewRouter: ObservableObject {
     @Published var currentPage: Page = .home
-    @Published var popOverPages: MenuOption = .clear
+    
+    @Published var rootView: MenuOption = .clear
+    
+    // Set this to true
+    // if you want close 'X' button to be dismissed. 
+    //
+    @Published var isPresenting: Bool = false
 }
 
 enum Page {
