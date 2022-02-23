@@ -54,6 +54,7 @@
 		A3830404276E2AA300B2B888 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830403276E2AA300B2B888 /* UIColor+extension.swift */; };
 		A383040A276E336A00B2B888 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3830409276E336A00B2B888 /* SearchBarView.swift */; };
 		A384DBCC2774913D0069685A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384DBCB2774913D0069685A /* SettingsView.swift */; };
+		A3853AE027C6BEB800162065 /* UpdateNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3853ADF27C6BEB800162065 /* UpdateNewsArticleView.swift */; };
 		A38B9CBF27B28470007A112B /* JTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38B9CBE27B28470007A112B /* JTextView.swift */; };
 		A38E93ED27B27ED60009D159 /* AddNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */; };
 		A38E93F127B27F3D0009D159 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */; };
@@ -133,6 +134,7 @@
 		A3830403276E2AA300B2B888 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		A3830409276E336A00B2B888 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A384DBCB2774913D0069685A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A3853ADF27C6BEB800162065 /* UpdateNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNewsArticleView.swift; sourceTree = "<group>"; };
 		A38B9CBE27B28470007A112B /* JTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextView.swift; sourceTree = "<group>"; };
 		A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsArticleView.swift; sourceTree = "<group>"; };
 		A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
@@ -514,20 +516,20 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		A3853AE127C6BEBF00162065 /* ViewGroup */ = {
+			isa = PBXGroup;
+			children = (
+				A3DB48ED27ADCF4000122166 /* NewRepeatableView.swift */,
+			);
+			path = ViewGroup;
+			sourceTree = "<group>";
+		};
 		A38E93EE27B27F2E0009D159 /* NavigationTitle */ = {
 			isa = PBXGroup;
 			children = (
 				A38E93F027B27F3D0009D159 /* NavigationTitleView.swift */,
 			);
 			path = NavigationTitle;
-			sourceTree = "<group>";
-		};
-		A38E93F227B27FB50009D159 /* AddNewsArticle */ = {
-			isa = PBXGroup;
-			children = (
-				A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */,
-			);
-			path = AddNewsArticle;
 			sourceTree = "<group>";
 		};
 		A39420522767E45500BA5CC5 /* CollectionGridModel */ = {
@@ -567,10 +569,11 @@
 		A3DB48F227ADD0DC00122166 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A38E93F227B27FB50009D159 /* AddNewsArticle */,
-				A3DB48ED27ADCF4000122166 /* NewRepeatableView.swift */,
+				A3853AE127C6BEBF00162065 /* ViewGroup */,
+				A38E93EC27B27ED60009D159 /* AddNewsArticleView.swift */,
 				A3DB490227AFE68F00122166 /* NewsDetailView.swift */,
 				A3E9F171276E3D2700361050 /* NewsNavigationView.swift */,
+				A3853ADF27C6BEB800162065 /* UpdateNewsArticleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				A3E9F172276E3D2700361050 /* NewsNavigationView.swift in Sources */,
 				A3489F512770C69F00F21685 /* Adapter.swift in Sources */,
 				A330A6E4278248E000F88524 /* ExampleForm.swift in Sources */,
+				A3853AE027C6BEB800162065 /* UpdateNewsArticleView.swift in Sources */,
 				A379D7552768FA4F00BCD05D /* RootViewNavigator.swift in Sources */,
 				A383040A276E336A00B2B888 /* SearchBarView.swift in Sources */,
 				A3E9F170276E3D1A00361050 /* TeamNavigationView.swift in Sources */,

@@ -19,18 +19,18 @@ extension Api {
     struct Token {
         
         enum ApiError: Error {
-               case invalidURL
-               case missingData
-           }
+            case invalidURL
+            case missingData
+        }
         
         static func fetchToken() async throws -> AuthToken {
             
             let session = URLSession.shared
-
+            
             guard let urlRequest = try? Router.login.asURLRequest() else {
                 throw ApiError.invalidURL
             }
-
+            
             do {
                 let (data, _) = try await session.data(for: urlRequest)
                 let jsonDecoder = JSONDecoder()
@@ -53,6 +53,20 @@ extension Api {
                 completion(response.result)
             }
         }
+        
+        // approve user
+        static func verifyUser(id: String, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            AF.request(Router.verifyRegistrant(id: id)).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
+        }
+        
+        // delete user
+        static func deleteUser(id: String, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            AF.request(Router.deleteReigstrant(id: id)).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
+        }
     }
 }
 
@@ -72,6 +86,7 @@ extension Api {
             }
         }
         
+        // upload news article with image
         static func postNewsArticle(title: String, content: String, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
             
             let parameters: Parameters = [
@@ -86,24 +101,56 @@ extension Api {
             
             let url = "\(NetworkEnvironment.current.rawValue)/news/add"
             
-    
-                AF.upload(multipartFormData: { multipartFormData in
-                    for (key, value) in parameters {
-                        multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
-                    }
-                    
-                    // add image to header
-                    if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
-                        
-                        multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
-                    }
             
-                }, to: url, method: .post, headers: headers)
-                    .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
-                        completion(response.result)
-                    }
+            AF.upload(multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+                }
+                
+                // add image to header
+                if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+                    
+                    multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
+                }
+                
+            }, to: url, method: .post, headers: headers)
+                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                    completion(response.result)
+                }
+        }
+        
+        static func updateNewsArticle(title: String, content: String, image: UIImage? = nil, id: Int,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
 
             
+            let parameters: Parameters = [
+                "title": title,
+                "content": content
+            ]
+            
+            let headers: HTTPHeaders = [
+                /* "Authorization": "your_access_token",  in case you need authorization header */
+                "Content-type": "multipart/form-data"
+            ]
+            
+            let url = "\(NetworkEnvironment.current.rawValue)/news/update/\(id)"
+            
+            Log.debug("url: \(url)")
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+                }
+                
+                // add image to header
+                if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+                    
+                    multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
+                }
+                
+            }, to: url, method: .patch, headers: headers)
+                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                    completion(response.result)
+                }
         }
     }
 }

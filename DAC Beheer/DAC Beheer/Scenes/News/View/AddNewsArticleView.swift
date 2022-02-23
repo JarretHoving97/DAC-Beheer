@@ -11,8 +11,9 @@ struct AddNewsArticleView: View {
     
     var viewRouter: ViewRouter
     var navigation: NavigationRouter
-    @State private var image: Image?
+
     @State private var showingImagePicker = false
+    @State private var image: Image?
     @State private var inputImage: UIImage?
     @State private var title: String = ""
     @State private var content: String = ""

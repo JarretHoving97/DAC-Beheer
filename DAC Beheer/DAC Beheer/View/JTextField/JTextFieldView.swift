@@ -23,7 +23,7 @@ struct JTextFieldView: View {
     @State var isSelected: Bool = false
     
     private var hasValue: Bool {
-        return text != ""
+        return !text.isEmpty
     }
     
     private var showBorder: Bool {
@@ -43,11 +43,14 @@ struct JTextFieldView: View {
             HStack(spacing: 0) {
                 TextField("", text: $text, onEditingChanged: { editing in
                     
+    
                     if !hasValue {
                         withAnimation(.easeInOut(duration: 0.4)) {
                             isSelected = editing
                         }
                     }
+                    
+                    
                 }, onCommit: {
                     if !hasValue {
                         isSelected = false
@@ -68,6 +71,12 @@ struct JTextFieldView: View {
                     .textContentType(textContentType)
             }
         }
+        
+        .onAppear(perform: {
+            if hasValue {
+                isSelected = true
+            }
+        })
         
         .frame(maxWidth: .infinity, minHeight: 59, maxHeight: .infinity, alignment: .leading)
         .padding(.trailing)

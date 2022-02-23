@@ -40,9 +40,7 @@ struct RegistrantReusableView: View {
             .cornerRadius(10)
         .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
         }
-        .padding(.trailing, 17)
-        .padding(.leading, 17)
-        .padding(.bottom, 11)
+
     }
 }
 

@@ -13,7 +13,7 @@ struct NewsListModel: Codable {
 
 struct NewsItem: Codable, Hashable {
     let id: Int
-    let title, content, createdAt: String
+    var title, content, createdAt: String
     var image: String?
     let updatedAt: String
 }

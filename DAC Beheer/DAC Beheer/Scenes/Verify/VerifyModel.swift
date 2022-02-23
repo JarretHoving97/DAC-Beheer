@@ -28,4 +28,8 @@ class VerifyModel: ObservableObject {
             }
         }
     }
+    
+    func reload() {
+        getRegistrants()
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewRegistrant: Codable, Hashable {
-    let id: String?
+    let id: String
     let firstName: String?
     let lastName: String?
     let verified: Bool?

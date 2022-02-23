@@ -20,6 +20,10 @@ struct NewsNavigationView: View {
     @State var successPopup: Bool = false
     @State var failurePopup: Bool = false
     
+    @State var showConfirmation: Bool = false
+    
+    @State var selectedNewsItem: NewsItem?
+    
     
     var body: some View {
         ZStack {
@@ -30,16 +34,16 @@ struct NewsNavigationView: View {
                     .padding(.leading, 17)
                     .foregroundColor(SystemColors.backgroundText)
                 
-            
-                    Toggle(isOn: $isEditing.animation(.spring())) {
-                        Text("Wijzig")
-                            .themedFont(name: .semiBold, size: .small)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            
-                    }
-                    .padding(.trailing, 17)
                 
-              
+                Toggle(isOn: $isEditing.animation(.spring())) {
+                    Text("Wijzig")
+                        .themedFont(name: .semiBold, size: .small)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                }
+                .padding(.trailing, 17)
+                
+                
                 
                 if !viewModel.isLoading {
                     ScrollView(showsIndicators: false) {
@@ -50,7 +54,7 @@ struct NewsNavigationView: View {
                                     
                                     withAnimation {
                                         navigationController.addAndPresent(AnyView(NewsDetailView(newsTitle: newsItem.title, content: newsItem.content, date: newsItem
-                                                                                        .createdAt, image: newsItem.image)))
+                                                                                                    .createdAt, image: newsItem.image)))
                                         navigationController.present()
                                         viewRouter.isPresenting = true
                                     }
@@ -63,6 +67,13 @@ struct NewsNavigationView: View {
                                     HStack(spacing: 17) {
                                         Button {
                                             // edit item
+                                            
+                                            withAnimation {
+                                                Log.debug("newsItem to edit \(newsItem)")
+                                                navigationController.addAndPresent(AnyView(UpdateNewsArticleView(viewRouter: viewRouter, navigation: navigationController, newsItem: newsItem)))
+                                                navigationController.present()
+                                                viewRouter.isPresenting = true
+                                            }
                                         } label: {
                                             ZStack {
                                                 Color.blue
@@ -81,32 +92,10 @@ struct NewsNavigationView: View {
                                         
                                         Button {
                                             // delete item
+                                            selectedNewsItem = newsItem
                                             
-                                            Api.News.deleteNewsPost(id: String(newsItem.id)) { result in
-                                                switch result {
-                                                case .success(let response):
-                                                    Log.debug("Success deleting newsArticle \(response)")
-                                                    
-                                                    successPopup = true
-                                                    
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                                        successPopup = false
-                                                        
-                                                        withAnimation {
-                                                            viewModel.reload()
-                                                        }
-                                                    }
-                                                    
-                                                case .failure(let error):
-                                                    Log.debug(error.localizedDescription)
-                                                    
-                                                    failurePopup = true
-                                                    
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                                        failurePopup = false
-                                                    }
-                                                }
-                                            }
+                                            showConfirmation = true
+                                            
                                             
                                         } label: {
                                             ZStack {
@@ -174,12 +163,49 @@ struct NewsNavigationView: View {
             if failurePopup {
                 XmarkAnimation()
             }
+            
         }
         .onAppear {
             viewRouter.isPresenting = false
         }
+        
+        .alert("Weet je het zeker dat je \(selectedNewsItem?.title ?? "") wilt verwijderen?", isPresented: $showConfirmation) {
+            Button("Ja") {
+                
+                Api.News.deleteNewsPost(id: String(selectedNewsItem?.id ?? 0)) { result in
+                    switch result {
+                    case .success(let response):
+                        Log.debug("Success deleting newsArticle \(response)")
+                        
+                        successPopup = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            successPopup = false
+                            
+                            withAnimation {
+                                viewModel.reload()
+                            }
+                        }
+                        
+                    case .failure(let error):
+                        Log.debug(error.localizedDescription)
+                        
+                        failurePopup = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            failurePopup = false
+                        }
+                    }
+                }
+            }
+            
+            Button("Annuleer") {
+                showConfirmation = false
+            }
+        }
     }
 }
+
 
 struct NewsNavigationView_Previews: PreviewProvider {
     static var previews: some View {
