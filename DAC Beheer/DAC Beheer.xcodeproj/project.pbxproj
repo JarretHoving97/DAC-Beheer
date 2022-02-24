@@ -66,6 +66,9 @@
 		A3C10C402773C49100B2CF50 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C10C3F2773C49100B2CF50 /* EmptyView.swift */; };
 		A3C10C422773C49E00B2CF50 /* EmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C10C412773C49E00B2CF50 /* EmptyViewModel.swift */; };
 		A3C5E63E27848F890060329C /* JTextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E63D27848F890060329C /* JTextFieldDateView.swift */; };
+		A3CE8A5527C823B000936EA8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A5427C823B000936EA8 /* Event.swift */; };
+		A3CE8A5727C828BE00936EA8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A5627C828BE00936EA8 /* EventViewModel.swift */; };
+		A3CE8A5A27C82AA500936EA8 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE8A5927C82AA500936EA8 /* EventView.swift */; };
 		A3D3998227B1C14A00292B06 /* AddButtomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D3998127B1C14A00292B06 /* AddButtomView.swift */; };
 		A3DB48EE27ADCF4000122166 /* NewRepeatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB48ED27ADCF4000122166 /* NewRepeatableView.swift */; };
 		A3DB48F127ADCF9D00122166 /* NewsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB48F027ADCF9D00122166 /* NewsListModel.swift */; };
@@ -146,6 +149,9 @@
 		A3C10C3F2773C49100B2CF50 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		A3C10C412773C49E00B2CF50 /* EmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewModel.swift; sourceTree = "<group>"; };
 		A3C5E63D27848F890060329C /* JTextFieldDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTextFieldDateView.swift; sourceTree = "<group>"; };
+		A3CE8A5427C823B000936EA8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A3CE8A5627C828BE00936EA8 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		A3CE8A5927C82AA500936EA8 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		A3D3998127B1C14A00292B06 /* AddButtomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtomView.swift; sourceTree = "<group>"; };
 		A3DB48ED27ADCF4000122166 /* NewRepeatableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRepeatableView.swift; sourceTree = "<group>"; };
 		A3DB48F027ADCF9D00122166 /* NewsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListModel.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			children = (
 				A31FFFDD277381B200CF456C /* NewRegistrant.swift */,
 				A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */,
+				A3CE8A5427C823B000936EA8 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,7 +482,9 @@
 		A383040B276E3B5700B2B888 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				A3CE8A5827C82A9600936EA8 /* ViewGroup */,
 				A3E9F169276E3C8B00361050 /* EventNavigationView.swift */,
+				A3CE8A5627C828BE00936EA8 /* EventViewModel.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -548,6 +557,14 @@
 				A3C10C412773C49E00B2CF50 /* EmptyViewModel.swift */,
 			);
 			path = NoDataFoundView;
+			sourceTree = "<group>";
+		};
+		A3CE8A5827C82A9600936EA8 /* ViewGroup */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE8A5927C82AA500936EA8 /* EventView.swift */,
+			);
+			path = ViewGroup;
 			sourceTree = "<group>";
 		};
 		A3D3998027B1C13000292B06 /* AddButtonView */ = {
@@ -746,6 +763,7 @@
 				A32C647E27BBE82F0006CCD9 /* WebImageUrlHelper.swift in Sources */,
 				A34D37DF2762863A009D11F2 /* MainTabbar.swift in Sources */,
 				A3DB490127AFDCD300122166 /* ActivityIndicatorView.swift in Sources */,
+				A3CE8A5527C823B000936EA8 /* Event.swift in Sources */,
 				A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */,
 				A3E9F16E276E3CFF00361050 /* MatchNavigationView.swift in Sources */,
 				A352001527690ADC00FF74BE /* MainNavigationView.swift in Sources */,
@@ -773,10 +791,12 @@
 				A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */,
 				A38B9CBF27B28470007A112B /* JTextView.swift in Sources */,
 				A3787EB72764F8B4009480A5 /* ScoreSquareView.swift in Sources */,
+				A3CE8A5727C828BE00936EA8 /* EventViewModel.swift in Sources */,
 				A34925782773A0EB00E6ADF4 /* RegistrantReusableView.swift in Sources */,
 				A352001A276936EA00FF74BE /* ReturnableView.swift in Sources */,
 				A330A6E227822F2100F88524 /* JTextFieldModel.swift in Sources */,
 				A3C10C392773BDC400B2CF50 /* String+Extensions.swift in Sources */,
+				A3CE8A5A27C82AA500936EA8 /* EventView.swift in Sources */,
 				A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */,
 				A34925752773A00900E6ADF4 /* VerifyRegistrantsView.swift in Sources */,
 				A3C10C422773C49E00B2CF50 /* EmptyViewModel.swift in Sources */,

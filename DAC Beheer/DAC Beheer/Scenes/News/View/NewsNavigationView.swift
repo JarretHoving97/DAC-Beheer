@@ -67,7 +67,6 @@ struct NewsNavigationView: View {
                                     HStack(spacing: 17) {
                                         Button {
                                             // edit item
-                                            
                                             withAnimation {
                                                 Log.debug("newsItem to edit \(newsItem)")
                                                 navigationController.addAndPresent(AnyView(UpdateNewsArticleView(viewRouter: viewRouter, navigation: navigationController, newsItem: newsItem)))

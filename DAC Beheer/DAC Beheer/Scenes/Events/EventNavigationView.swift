@@ -11,19 +11,129 @@ struct EventNavigationView: View {
     
     @State private var searchText = ""
     
+    @ObservedObject var viewModel = EventViewModel()
+    
     var body: some View {
         
-        VStack {
-            Text("Evenementen 📝")
-                .themedFont(name: .extraBold, size: .large)
-                .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
-                .padding(.leading, 17)
-                .foregroundColor(SystemColors.backgroundText)
-            
-            ScrollView {}// content
+        ZStack {
+            VStack {
+                Text("Evenementen 📆")
+                    .themedFont(name: .extraBold, size: .large)
+                    .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
+                    .padding(.leading, 17)
+                    .foregroundColor(SystemColors.backgroundText)
+                
+                Toggle(isOn: $viewModel.isEditing.animation(.spring())) {
+                    Text("Wijzig")
+                        .themedFont(name: .semiBold, size: .small)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                }
+                .padding(.trailing, 17)
+                
+                
+                ScrollView {
+                    if !viewModel.isLoading {
+                        ForEach(viewModel.eventList, id: \.self) { event in
+                            HStack {
+                                
+                                EventView(event: event)
+                                    .padding(.trailing, 17)
+                                    .padding(.leading, 17)
+                                
+                                if viewModel.isEditing {
+                                    HStack(spacing: 17) {
+                                        Button {
+                                            // edit item
+                                            withAnimation {
+                                                
+                                            }
+                                        } label: {
+                                            ZStack {
+                                                Color.blue
+                                                    .frame(width: 40, height: 40, alignment: .center)
+                                                    .cornerRadius(100)
+                                                
+                                                VStack(spacing: 0) {
+                                                    Image(systemName: "gear")
+                                                        .resizable()
+                                                        .foregroundColor(Color.white)
+                                                        .frame(width: 20, height: 20, alignment: .center)
+                                                        .foregroundColor(SystemColors.backgroundText)
+                                                }
+                                            }
+                                        }
+                                        
+                                        Button {
+                                            // delete item
+                                            viewModel.showAlert = true
+                                            viewModel.selectedEvent = event
+                                            
+                                        } label: {
+                                            ZStack {
+                                                Color.red
+                                                    .frame(width: 40, height: 40, alignment: .center)
+                                                    .cornerRadius(100)
+                                                
+                                                VStack(spacing: 0) {
+                                                    Image(systemName: "xmark")
+                                                        .resizable()
+                                                        .foregroundColor(Color.white)
+                                                        .frame(width: 20, height: 20, alignment: .center)
+                                                        .foregroundColor(SystemColors.backgroundText)
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .padding(.trailing, 17)
+                                }
+                            }
+                        }
+                    }
+                }
+                .alert("Weet je het zeker dat je \(viewModel.selectedEvent?.title ?? "") wilt verwijderen?", isPresented: $viewModel.showAlert) {
+                    Button("Ja") {
+                        
+                        Api.Generic.regularResponseCall(req: .deleteEvent(id: String(viewModel.selectedEvent?.id ?? 0))) { result in
+                            switch result {
+                            case .success(_):
+                                viewModel.showSucces = true
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    viewModel.showSucces = false
+                                    viewModel.reload()
+                                }
+                                
+                            case .failure(let error):
+                                Log.debug(error.localizedDescription)
+                                
+                                viewModel.showError = true
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    viewModel.showError = false
+                                   
+                                }
+                            }
+                        }
+                    }
+                    
+                    Button("Annuleer") {
+                        viewModel.showAlert = false
+                    }
+                    
+          
+                }
+            }
+            .background(SystemColors.background)
         }
-        .background(SystemColors.background)
         
+        if viewModel.showSucces {
+            CheckMarkAnimation()
+        }
+        
+        if viewModel.showError {
+            XmarkAnimation()
+        }
     }
 }
 

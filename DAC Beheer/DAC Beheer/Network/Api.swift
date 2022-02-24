@@ -13,6 +13,17 @@ import AVFoundation
 
 struct Api {}
 
+extension Api {
+    
+    struct Generic {
+        static func regularResponseCall(req: Router, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            AF.request(req).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
+        }
+    }
+}
+
 // MARK: - Token authentication calls here
 extension Api {
     
@@ -151,6 +162,19 @@ extension Api {
                 .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
                     completion(response.result)
                 }
+        }
+    }
+}
+
+// MARK: - EVENT
+extension Api {
+    struct Events {
+        static func getAllEvents(completion: @escaping (Result<[Event], AFError>) -> Void) {
+            
+            AF.request(Router.getAllEvents).responseDecodable { (response: DataResponse<[Event], AFError>) in
+                
+                completion(response.result)
+            }
         }
     }
 }
