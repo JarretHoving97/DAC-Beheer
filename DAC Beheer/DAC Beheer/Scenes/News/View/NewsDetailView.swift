@@ -61,16 +61,3 @@ struct NewsDetailView: View {
     }
 }
 
-struct titleSectionView: View {
-    
-    let title: String
-    let font: (name: ScaledFont.ThemeFont, size: ScaledFont.ThemeFontSize)
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .themedFont(name: font.name, size: font.size)
-        }
-        .padding(.leading, 17)
-    }
-}

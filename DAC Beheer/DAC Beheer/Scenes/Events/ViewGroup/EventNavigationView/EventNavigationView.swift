@@ -9,6 +9,9 @@ import SwiftUI
 
 struct EventNavigationView: View {
     
+    @StateObject var viewRouter: ViewRouter
+    @StateObject var navigationController = NavigationRouter()
+    
     @State private var searchText = ""
     
     @ObservedObject var viewModel = EventViewModel()
@@ -36,11 +39,13 @@ struct EventNavigationView: View {
                     if !viewModel.isLoading {
                         ForEach(viewModel.eventList, id: \.self) { event in
                             HStack {
-                                
-                                EventView(event: event)
-                                    .padding(.trailing, 17)
-                                    .padding(.leading, 17)
-                                
+                                Button {
+                                    
+                                } label: {
+                                    EventView(event: event)
+                                        .padding(.trailing, 17)
+                                        .padding(.leading, 17)
+                                }
                                 if viewModel.isEditing {
                                     HStack(spacing: 17) {
                                         Button {
@@ -116,15 +121,36 @@ struct EventNavigationView: View {
                             }
                         }
                     }
-                    
                     Button("Annuleer") {
                         viewModel.showAlert = false
                     }
-                    
-          
                 }
             }
             .background(SystemColors.background)
+            
+            if !viewModel.isEditing {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            withAnimation {
+                                navigationController.addAndPresent(AnyView(NewEventView()))
+                                navigationController.present()
+                                viewRouter.isPresenting = true // for hiding the x mark
+                            }
+                            
+                        } label: {
+                            AddButtonView(systemName: "plus")
+                                .padding(30)
+                        }
+                    }
+                }
+            }
+            
+            NavigationsReturnableView(navigationViewRouter: navigationController, viewRouter: viewRouter) {
+                navigationController.currentPresentedView
+            }
         }
         
         if viewModel.showSucces {
@@ -137,8 +163,3 @@ struct EventNavigationView: View {
     }
 }
 
-struct EventNavigationView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventNavigationView()
-    }
-}

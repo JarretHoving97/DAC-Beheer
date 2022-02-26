@@ -16,7 +16,7 @@ struct RootViewNavigator {
         case .users:
             return AnyView(UserNavigation())
         case .events:
-            return AnyView(EventNavigationView())
+            return AnyView(EventNavigationView(viewRouter: viewRouter))
         case .matches:
             return AnyView(MatchNavigationView())
         case .news:
