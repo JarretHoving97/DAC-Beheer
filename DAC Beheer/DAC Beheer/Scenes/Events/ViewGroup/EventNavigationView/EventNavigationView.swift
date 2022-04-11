@@ -41,6 +41,13 @@ struct EventNavigationView: View {
                             HStack {
                                 Button {
                                     
+                                    withAnimation {
+                                        navigationController.addAndPresent(AnyView(EventOverViewView(event: event)))
+                                        
+                                        navigationController.present()
+                                        viewRouter.isPresenting = true
+                                    }
+                                    
                                 } label: {
                                     EventView(event: event)
                                         .padding(.trailing, 17)
@@ -60,9 +67,11 @@ struct EventNavigationView: View {
                                                     .cornerRadius(100)
                                                 
                                                 VStack(spacing: 0) {
-                                                    Image(systemName: "gear")
+                                                    Image(systemName: "square.and.pencil")
                                                         .resizable()
                                                         .foregroundColor(Color.white)
+                                                        .padding(.leading, 2)
+                                                        .padding(.bottom, 2)
                                                         .frame(width: 20, height: 20, alignment: .center)
                                                         .foregroundColor(SystemColors.backgroundText)
                                                 }
@@ -135,7 +144,7 @@ struct EventNavigationView: View {
                         Spacer()
                         Button {
                             withAnimation {
-                                navigationController.addAndPresent(AnyView(NewEventView()))
+                                navigationController.addAndPresent(AnyView(NewEventView(navigation: navigationController, viewRouter: viewRouter)))
                                 navigationController.present()
                                 viewRouter.isPresenting = true // for hiding the x mark
                             }

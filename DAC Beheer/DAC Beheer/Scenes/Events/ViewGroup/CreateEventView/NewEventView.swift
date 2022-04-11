@@ -10,6 +10,8 @@ import SwiftUI
 struct NewEventView: View {
     
     @ObservedObject var viewModel = NewEventViewModel()
+    var navigation: NavigationRouter
+    var viewRouter: ViewRouter
     
     @State private var showingImagePicker = false
     
@@ -23,23 +25,7 @@ struct NewEventView: View {
                     .foregroundColor(SystemColors.backgroundText)
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        JTextFieldView(title: "Titel", fieldType: .regular, text: $viewModel.eventTitle)
-                        
-                        JTextFieldView(title: "Evenement datum", fieldType: .date, text: $viewModel.eventDate)
-                        
-                        JTextFieldView(title: "Inschrijven vanaf", fieldType: .date, text: $viewModel.eventRegisterFromDate)
-                        
-                        JTextFieldView(title: "Inschrijven tot", fieldType: .date, text: $viewModel.eventRegisterTilldate)
-                        
-                        Toggle(isOn: $viewModel.membersOnly) {
-                            Text("Alleen voor leden")
-                                .themedFont(name: .semiBold, size: .title)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .foregroundColor(SystemColors.backgroundText)
-                        }
-                        .tint(SystemColors.backgroundText)
+                    VStack(alignment: .leading, spacing: 15) {
                         
                         //image
                         Text("Foto(s)")
@@ -68,12 +54,68 @@ struct NewEventView: View {
                             showingImagePicker = true
                         }
                         
+                        JTextFieldView(title: "Titel", fieldType: .regular, text: $viewModel.eventTitle)
+            
+                        DatePicker("Evenement datum", selection: $viewModel.eventDate)
+                            .themedFont(name: .bold, size: .regular)
+                            .tint(SystemColors.theme1)
+                            .foregroundColor(SystemColors.backgroundText)
+                            .accentColor(SystemColors.backgroundText)
+                           
+                        
+                        DatePicker("Inschrijven vanaf", selection: $viewModel.eventRegisterFromDate)
+                            .themedFont(name: .bold, size: .regular)
+                            .tint(SystemColors.theme1)
+                            .foregroundColor(SystemColors.backgroundText)
+                            .accentColor(SystemColors.backgroundText)
+                        
+                        
+                        DatePicker("Inschrijven tot", selection: $viewModel.eventRegisterTilldate)
+                            .themedFont(name: .bold, size: .regular)
+                            .tint(SystemColors.theme1)
+                            .foregroundColor(SystemColors.backgroundText)
+                            .accentColor(SystemColors.backgroundText)
+                        
+                  
+                        Toggle(isOn: $viewModel.membersOnly) {
+                            Text("Alleen voor leden")
+                                .themedFont(name: .semiBold, size: .title)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundColor(SystemColors.backgroundText)
+                        }
+                        .tint(SystemColors.backgroundText)
+                        
+        
                         VStack {
                             JTextView(title: "Omschrijving", text: $viewModel.eventContent, isSelected: false)
                         }
                         
                         Button {
                             // send
+                            guard let parameters = viewModel.createParameters() else { return }
+                            Api.Events.sendEvent(parameters: parameters, image: viewModel.inputImage) { result in
+                                switch result {
+                                    
+                                case .success(let response):
+                                    Log.debug("success posting event!! \(response.message ?? "")")
+                                    viewModel.showSucces = true
+
+                                    
+                                    withAnimation(Animation.easeOut(duration: 0.22).delay(1.2)) {
+                                        navigation.close()
+                                        viewRouter.isPresenting = false // for showing the previous xmark
+                                        
+                                    }
+                                    
+                                case .failure(_):
+                                    viewModel.showError = true
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        viewModel.showError = false
+                                    }
+                                }
+                            }
+                            
                         } label: {
                             ZStack {
                                 SystemColors.theme1
@@ -101,14 +143,22 @@ struct NewEventView: View {
             .sheet(isPresented: $showingImagePicker) {
                 ImagePicker(image: $viewModel.inputImage)
             }
+            
+            if viewModel.showSucces {
+                CheckMarkAnimation()
+            }
+            
+            if viewModel.showError {
+                XmarkAnimation()
+            }
         }
         .background(SystemColors.background)
-        // popups here
+    
     }
 }
 
-struct NewEventView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewEventView()
-    }
-}
+//struct NewEventView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        NewEventView()
+//    }
+//}

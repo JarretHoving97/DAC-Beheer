@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct WebImageHelper {
-    static let imageUrl = "http://localhost:8080/image"
+    static let imageUrl =  Router.mediaUrl
     
     static func imageUrl(_ append: String?) -> URL? {
         

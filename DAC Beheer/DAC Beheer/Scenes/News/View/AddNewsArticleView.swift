@@ -152,7 +152,6 @@ struct AddNewsArticleView: View {
                 XmarkAnimation()
             }
         }
-        
     }
     
     func loadImage() {

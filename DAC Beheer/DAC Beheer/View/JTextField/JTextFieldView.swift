@@ -49,8 +49,7 @@ struct JTextFieldView: View {
                             isSelected = editing
                         }
                     }
-                    
-                    
+
                 }, onCommit: {
                     if !hasValue {
                         isSelected = false

@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
+
+
+enum DateFormat: String {
+    case serverDate = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    case elegant = "dd MMM. yyyy"
+    case simpleFormat = "yyyy-MM-dd"
+}
+
 extension String {
-    
-    enum DateFormat: String {
-        case serverDate = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        case elegant = "dd MMM. yyyy"
-        case simpleFormat = "yyyy-MM-dd"
-    }
-    
+
     func toDate(dateFormat: DateFormat) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat.rawValue
@@ -26,15 +28,18 @@ extension String {
         return date
     }
     
-    func serverDateString(to format: DateFormat) -> String {
+    func serverDateString(to format: DateFormat, timeFormatOnly: Bool = false) -> String {
         let date = self.toDate(dateFormat: .serverDate)
         
-        if date.isInToday {
-           return "Vandaag"
-        } else if date.isInYesterday {
-            return "Gisteren"
+
+        if !timeFormatOnly {
+            if date.isInToday {
+                return "Vandaag"
+            } else if date.isInYesterday {
+                return "Gisteren"
+            }
         }
-        
+    
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")

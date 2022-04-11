@@ -54,12 +54,9 @@ struct UpdateNewsArticleView: View {
                         }
                         .padding(.leading, 17)
                         
-                        
                         ZStack {
                             SystemColors.JTextField.textFieldBackground
-                            
-                            // show current image if has one
-                            
+                    
                             if showDownloadedImage  {
                                 Image(uiImage: currentImage!)
                                     .resizable()
@@ -88,13 +85,6 @@ struct UpdateNewsArticleView: View {
                 
                     // section 3
                     VStack(spacing: 0) {
-                        HStack {
-                            Text("Content")
-                                .themedFont(name: .semiBold, size: .largeValutaSub)
-                                .foregroundColor(SystemColors.backgroundText)
-                            Spacer()
-                        }
-                        .padding(.leading, 17)
                         JTextView(text: $newsItem.content)
                             .padding(.leading, 17)
                             .padding(.trailing, 17)

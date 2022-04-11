@@ -39,4 +39,5 @@ extension Event {
     var eventDateFormatted: String {
         return eventDate.serverDateString(to: .elegant)
     }
+
 }
