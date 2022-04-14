@@ -58,7 +58,12 @@ struct EventNavigationView: View {
                                         Button {
                                             // edit item
                                             withAnimation {
+                                                let eventView = NewEventView(navigation: navigationController, viewRouter: viewRouter)
+                                                eventView.setEvent(event)  // set event and the program knows it needs to edit instead )
+                                                navigationController.addAndPresent(AnyView(eventView))
                                                 
+                                                navigationController.present()
+                                                viewRouter.isPresenting = true
                                             }
                                         } label: {
                                             ZStack {

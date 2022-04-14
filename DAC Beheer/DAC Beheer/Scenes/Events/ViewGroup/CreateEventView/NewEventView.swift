@@ -15,10 +15,18 @@ struct NewEventView: View {
     
     @State private var showingImagePicker = false
     
+     private var pageTitle: String {
+        return viewModel.useState == .editing ? "Wijzig evenement" : "Nieuw evenement"
+     }
+    
+    private var buttonTitle: String {
+        return viewModel.useState == .editing ? "Wijzig" : "Verstuur"
+    }
+    
     var body: some View {
         ZStack {
             VStack {
-                Text("Nieuw evenement")
+                Text(pageTitle)
                     .themedFont(name: .extraBold, size: .large)
                     .frame(width: UIScreen.main.bounds.size.width - 24, height: 50, alignment: .leading)
                     .padding(.leading, 17)
@@ -92,21 +100,19 @@ struct NewEventView: View {
                         
                         Button {
                             // send
-                            guard let parameters = viewModel.createParameters() else { return }
-                            Api.Events.sendEvent(parameters: parameters, image: viewModel.inputImage) { result in
+                            
+                            viewModel.createNewEvent { result in
                                 switch result {
-                                    
                                 case .success(let response):
                                     Log.debug("success posting event!! \(response.message ?? "")")
                                     viewModel.showSucces = true
-
+                                    
                                     
                                     withAnimation(Animation.easeOut(duration: 0.22).delay(1.2)) {
                                         navigation.close()
                                         viewRouter.isPresenting = false // for showing the previous xmark
-                                        
                                     }
-                                    
+                                
                                 case .failure(_):
                                     viewModel.showError = true
                                     
@@ -115,7 +121,6 @@ struct NewEventView: View {
                                     }
                                 }
                             }
-                            
                         } label: {
                             ZStack {
                                 SystemColors.theme1
@@ -125,7 +130,7 @@ struct NewEventView: View {
                                     .padding(.trailing, 17)
                                     .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
                                 
-                                Text("Verstuur")
+                                Text(buttonTitle)
                                     .themedFont(name: .extraBold, size: .largeValutaSub)
                                     .foregroundColor(SystemColors.itemTextColor)
                             }
@@ -154,6 +159,10 @@ struct NewEventView: View {
         }
         .background(SystemColors.background)
     
+    }
+    
+    func setEvent(_ event: Event) {
+        viewModel.event = event
     }
 }
 

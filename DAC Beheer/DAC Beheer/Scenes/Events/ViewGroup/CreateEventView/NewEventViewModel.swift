@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Alamofire
+import SDWebImageSwiftUI
+import UIKit
 
 class NewEventViewModel: ObservableObject {
     
@@ -23,11 +25,50 @@ class NewEventViewModel: ObservableObject {
     @Published var showError: Bool = false
     @Published var showSucces: Bool = false
     
-    //MARK: FUNCTIONS
+    @Published var useState: useState = .create
     
+    @Published var event: Event? {
+        didSet {
+            useState = .editing
+            eventTitle = event?.title ?? ""
+            eventRegisterFromDate = event?.registerFrom.toDate(dateFormat: .serverDate) ?? Date()
+            eventRegisterTilldate = event?.registerTill.toDate(dateFormat: .serverDate) ?? Date()
+            eventDate = event?.eventDate.toDate(dateFormat: .serverDate) ?? Date()
+            membersOnly = event?.membersOnly ?? false
+            eventContent = event?.content ?? ""
+            
+            // download image
+            SDWebImageManager.shared.loadImage(with: WebImageHelper.imageUrl(event?.image), progress: nil) { [weak self] img, _, err, _, _, _ in
+                
+                if let error = err {
+                    Log.debug("Could not download Image: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let downloadedImage = img else {
+                    return
+                }
+                self?.image = Image(uiImage: img ?? UIImage())
+                self?.inputImage = downloadedImage
+            }
+        }
+    }
+
+    // Network call
+    func createNewEvent(completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+        guard let parameters = createParameters() else { return }
+        Api.Events.sendEvent(parameters: parameters, completion: completion)
+    }
+    
+    func updateEvent(event: Event, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+        guard let parameters = createParameters() else { return }
+        Api.Events.sendEvent(parameters: parameters, completion: completion)
+    }
+    
+    //MARK: FUNCTIONS
     func datesAreValid() -> Bool {
         if eventRegisterTilldate < eventRegisterFromDate {
-            Log.debug("Register till date = lower then register from date. Thats not allowed")
+            Log.debug("Register till date is lower then register from date. Thats not allowed")
             return false
         }
         
@@ -39,12 +80,10 @@ class NewEventViewModel: ObservableObject {
         return true
     }
     
-     func createParameters() -> Parameters? {
-         
-         if !datesAreValid() { return nil }
-         
+    func createParameters() -> Parameters? {
+        if !datesAreValid() { return nil }
         let satisfied = [eventTitle, eventContent].allSatisfy {$0 != ""}
-         
+        
         switch satisfied {
         case true:
             return [
@@ -66,4 +105,3 @@ class NewEventViewModel: ObservableObject {
         image = Image(uiImage: inputImage)
     }
 }
-
