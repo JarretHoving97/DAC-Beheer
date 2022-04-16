@@ -10,7 +10,7 @@ import SwiftUI
 struct EventNavigationView: View {
     
     @StateObject var viewRouter: ViewRouter
-    @StateObject var navigationController = NavigationRouter()
+    @StateObject var navigationRouter = NavigationRouter()
     
     @State private var searchText = ""
     
@@ -33,21 +33,16 @@ struct EventNavigationView: View {
                     
                 }
                 .padding(.trailing, 17)
-                
-                
+            
                 ScrollView {
                     if !viewModel.isLoading {
                         ForEach(viewModel.eventList, id: \.self) { event in
                             HStack {
                                 Button {
-                                    
                                     withAnimation {
-                                        navigationController.addAndPresent(AnyView(EventOverViewView(event: event)))
-                                        
-                                        navigationController.present()
-                                        viewRouter.isPresenting = true
+                                        let eventOverView = AnyView(EventOverViewView(event: event))
+                                        presentNextView(eventOverView)
                                     }
-                                    
                                 } label: {
                                     EventView(event: event)
                                         .padding(.trailing, 17)
@@ -58,29 +53,15 @@ struct EventNavigationView: View {
                                         Button {
                                             // edit item
                                             withAnimation {
-                                                let eventView = NewEventView(navigation: navigationController, viewRouter: viewRouter)
+                                                let eventView = NewEventView(navigationRouter: navigationRouter, viewRouter: viewRouter)
                                                 eventView.setEvent(event)  // set event and the program knows it needs to edit instead )
-                                                navigationController.addAndPresent(AnyView(eventView))
+                                                navigationRouter.addAndPresent(AnyView(eventView))
                                                 
-                                                navigationController.present()
+                                                navigationRouter.present()
                                                 viewRouter.isPresenting = true
                                             }
                                         } label: {
-                                            ZStack {
-                                                Color.blue
-                                                    .frame(width: 40, height: 40, alignment: .center)
-                                                    .cornerRadius(100)
-                                                
-                                                VStack(spacing: 0) {
-                                                    Image(systemName: "square.and.pencil")
-                                                        .resizable()
-                                                        .foregroundColor(Color.white)
-                                                        .padding(.leading, 2)
-                                                        .padding(.bottom, 2)
-                                                        .frame(width: 20, height: 20, alignment: .center)
-                                                        .foregroundColor(SystemColors.backgroundText)
-                                                }
-                                            }
+                                            EditItemButtonView()
                                         }
                                         
                                         Button {
@@ -89,19 +70,7 @@ struct EventNavigationView: View {
                                             viewModel.selectedEvent = event
                                             
                                         } label: {
-                                            ZStack {
-                                                Color.red
-                                                    .frame(width: 40, height: 40, alignment: .center)
-                                                    .cornerRadius(100)
-                                                
-                                                VStack(spacing: 0) {
-                                                    Image(systemName: "xmark")
-                                                        .resizable()
-                                                        .foregroundColor(Color.white)
-                                                        .frame(width: 20, height: 20, alignment: .center)
-                                                        .foregroundColor(SystemColors.backgroundText)
-                                                }
-                                            }
+                                            DeleteItemView()
                                         }
                                     }
                                     .padding(.trailing, 17)
@@ -149,9 +118,8 @@ struct EventNavigationView: View {
                         Spacer()
                         Button {
                             withAnimation {
-                                navigationController.addAndPresent(AnyView(NewEventView(navigation: navigationController, viewRouter: viewRouter)))
-                                navigationController.present()
-                                viewRouter.isPresenting = true // for hiding the x mark
+                                let view = AnyView(NewEventView(navigationRouter: navigationRouter, viewRouter: viewRouter))
+                                presentNextView(view)
                             }
                             
                         } label: {
@@ -162,8 +130,8 @@ struct EventNavigationView: View {
                 }
             }
             
-            NavigationsReturnableView(navigationViewRouter: navigationController, viewRouter: viewRouter) {
-                navigationController.currentPresentedView
+            NavigationsReturnableView(navigationViewRouter: navigationRouter, viewRouter: viewRouter) {
+                navigationRouter.currentPresentedView
             }
         }
         
@@ -177,3 +145,15 @@ struct EventNavigationView: View {
     }
 }
 
+extension EventNavigationView: NavigationReturnable {
+    
+    func presentNextView(_ view: AnyView) {
+        navigationRouter.addAndPresent(view)
+        navigationRouter.present()
+        viewRouter.isPresenting = true
+    }
+    
+    func presentationDidEnd() {
+        navigationRouter.close()
+    }
+}

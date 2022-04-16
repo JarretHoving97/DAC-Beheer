@@ -11,10 +11,12 @@ import Network
 import UIKit
 import AVFoundation
 
+typealias DefaultResponse = Result<SuccessResponse, AFError>
+
 struct Api {}
 
 extension Api {
-    
+
     struct Generic {
         static func regularResponseCall(req: Router, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
             AF.request(req).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
@@ -217,7 +219,7 @@ extension Api {
             }
         }
         
-        static func updateEvent(parameters: Parameters, id: String, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+        static func updateEvent(parameters: Parameters, id: Int, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
             
             
             let headers: HTTPHeaders = [

@@ -35,7 +35,7 @@ enum Router: URLRequestConvertible {
     //MARK: - EVENT
     case getAllEvents
     case deleteEvent(id: String)
-    
+
     
     // MARK: - ADMIN USER
     case login

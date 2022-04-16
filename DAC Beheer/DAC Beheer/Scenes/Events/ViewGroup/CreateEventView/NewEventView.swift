@@ -10,14 +10,14 @@ import SwiftUI
 struct NewEventView: View {
     
     @ObservedObject var viewModel = NewEventViewModel()
-    var navigation: NavigationRouter
+    var navigationRouter: NavigationRouter
     var viewRouter: ViewRouter
     
     @State private var showingImagePicker = false
     
-     private var pageTitle: String {
+    private var pageTitle: String {
         return viewModel.useState == .editing ? "Wijzig evenement" : "Nieuw evenement"
-     }
+    }
     
     private var buttonTitle: String {
         return viewModel.useState == .editing ? "Wijzig" : "Verstuur"
@@ -63,13 +63,13 @@ struct NewEventView: View {
                         }
                         
                         JTextFieldView(title: "Titel", fieldType: .regular, text: $viewModel.eventTitle)
-            
+                        
                         DatePicker("Evenement datum", selection: $viewModel.eventDate)
                             .themedFont(name: .bold, size: .regular)
                             .tint(SystemColors.theme1)
                             .foregroundColor(SystemColors.backgroundText)
                             .accentColor(SystemColors.backgroundText)
-                           
+                        
                         
                         DatePicker("Inschrijven vanaf", selection: $viewModel.eventRegisterFromDate)
                             .themedFont(name: .bold, size: .regular)
@@ -84,7 +84,7 @@ struct NewEventView: View {
                             .foregroundColor(SystemColors.backgroundText)
                             .accentColor(SystemColors.backgroundText)
                         
-                  
+                        
                         Toggle(isOn: $viewModel.membersOnly) {
                             Text("Alleen voor leden")
                                 .themedFont(name: .semiBold, size: .title)
@@ -93,34 +93,24 @@ struct NewEventView: View {
                         }
                         .tint(SystemColors.backgroundText)
                         
-        
+                        
                         VStack {
                             JTextView(title: "Omschrijving", text: $viewModel.eventContent, isSelected: false)
                         }
                         
                         Button {
                             // send
-                            
-                            viewModel.createNewEvent { result in
-                                switch result {
-                                case .success(let response):
-                                    Log.debug("success posting event!! \(response.message ?? "")")
-                                    viewModel.showSucces = true
-                                    
-                                    
-                                    withAnimation(Animation.easeOut(duration: 0.22).delay(1.2)) {
-                                        navigation.close()
-                                        viewRouter.isPresenting = false // for showing the previous xmark
-                                    }
+                            switch viewModel.useState {
                                 
-                                case .failure(_):
-                                    viewModel.showError = true
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        viewModel.showError = false
-                                    }
-                                }
+                            case .editing:
+                                //edit call
+                                viewModel.updateEvent(event: viewModel.event!, completion: viewModel.defaultResponseHandler)
+                                
+                            case .create:
+                                // create call
+                                viewModel.createNewEvent(completion: viewModel.defaultResponseHandler)
                             }
+                            
                         } label: {
                             ZStack {
                                 SystemColors.theme1
@@ -158,11 +148,32 @@ struct NewEventView: View {
             }
         }
         .background(SystemColors.background)
-    
+        
+        .onAppear {
+            viewModel.delegate = self
+        }
     }
-    
+}
+
+//MARK: Custom functions
+extension NewEventView {
     func setEvent(_ event: Event) {
         viewModel.event = event
+    }
+}
+
+//MARK: presentationLogiv
+
+extension NewEventView: NavigationReturnable {
+    
+    func presentNextView(_ view: AnyView) {
+        navigationRouter.addAndPresent(view)
+        viewRouter.isPresenting = true
+    }
+    
+    func presentationDidEnd() {
+        navigationRouter.close()
+        viewRouter.isPresenting = false // for showing the previous xmark
     }
 }
 

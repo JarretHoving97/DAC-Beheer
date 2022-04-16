@@ -25,6 +25,8 @@ class NewEventViewModel: ObservableObject {
     @Published var showError: Bool = false
     @Published var showSucces: Bool = false
     
+    var delegate: NavigationReturnable?
+    
     @Published var useState: useState = .create
     
     @Published var event: Event? {
@@ -53,6 +55,25 @@ class NewEventViewModel: ObservableObject {
             }
         }
     }
+    
+    lazy var defaultResponseHandler: ((DefaultResponse) -> Void) = { [weak self] result in
+        switch result {
+        case .success(let response):
+            Log.debug("success posting event!! \(response.message ?? "")")
+            self?.showSucces = true
+        
+            withAnimation(Animation.easeOut(duration: 0.22).delay(1.2)) {
+                self?.delegate?.presentationDidEnd()
+            }
+        
+        case .failure(_):
+            self?.showError = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self?.showError = false
+            }
+        }
+    }
 
     // Network call
     func createNewEvent(completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
@@ -62,7 +83,7 @@ class NewEventViewModel: ObservableObject {
     
     func updateEvent(event: Event, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
         guard let parameters = createParameters() else { return }
-        Api.Events.sendEvent(parameters: parameters, completion: completion)
+        Api.Events.updateEvent(parameters: parameters, id: event.id, completion: completion)
     }
     
     //MARK: FUNCTIONS

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0C6F5CEC421F115794389836 /* Pods_DAC_Beheer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAB87C674EF0C810EA42E4C /* Pods_DAC_Beheer.framework */; };
+		311A23362809EF54001C6127 /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A23352809EF54001C6127 /* Bool+Extension.swift */; };
+		311F4FE6280B161900F92EE8 /* NavigationReturnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F4FE5280B161900F92EE8 /* NavigationReturnable.swift */; };
+		311F4FE9280B197100F92EE8 /* EditItemButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F4FE8280B197100F92EE8 /* EditItemButtonView.swift */; };
+		311F4FEB280B19C400F92EE8 /* DeleteItemButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F4FEA280B19C400F92EE8 /* DeleteItemButtonView.swift */; };
 		313487F72808A89600C56AC2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313487F62808A89600C56AC2 /* State.swift */; };
 		A31D635D27B7B2DC00ABA815 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */; };
 		A31FFFDB2773815300CF456C /* VerifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31FFFDA2773815300CF456C /* VerifyModel.swift */; };
@@ -95,6 +99,10 @@
 		0DAB87C674EF0C810EA42E4C /* Pods_DAC_Beheer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DAC_Beheer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26203B6E176CA3771BC4C93D /* Pods-DAC Beheer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAC Beheer.debug.xcconfig"; path = "Target Support Files/Pods-DAC Beheer/Pods-DAC Beheer.debug.xcconfig"; sourceTree = "<group>"; };
 		2800F0EBD31CD9339D84289A /* Pods-DAC Beheer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DAC Beheer.release.xcconfig"; path = "Target Support Files/Pods-DAC Beheer/Pods-DAC Beheer.release.xcconfig"; sourceTree = "<group>"; };
+		311A23352809EF54001C6127 /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
+		311F4FE5280B161900F92EE8 /* NavigationReturnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationReturnable.swift; sourceTree = "<group>"; };
+		311F4FE8280B197100F92EE8 /* EditItemButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemButtonView.swift; sourceTree = "<group>"; };
+		311F4FEA280B19C400F92EE8 /* DeleteItemButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItemButtonView.swift; sourceTree = "<group>"; };
 		313487F62808A89600C56AC2 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		A31D635C27B7B2DC00ABA815 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		A31FFFDA2773815300CF456C /* VerifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyModel.swift; sourceTree = "<group>"; };
@@ -191,6 +199,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311F4FE7280B194B00F92EE8 /* EditButtons */ = {
+			isa = PBXGroup;
+			children = (
+				311F4FE8280B197100F92EE8 /* EditItemButtonView.swift */,
+				311F4FEA280B19C400F92EE8 /* DeleteItemButtonView.swift */,
+			);
+			path = EditButtons;
+			sourceTree = "<group>";
+		};
 		50F2D7523A41DFA6391D95DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +423,7 @@
 		A34D37DA276284E8009D11F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				311F4FE7280B194B00F92EE8 /* EditButtons */,
 				A3E56A1727CA29F5007A6D27 /* TitleSectionView */,
 				A3232DB727C4155F0071FD86 /* StatusAnimations */,
 				A3478AB427B9108200BE36D3 /* ImagePickerView */,
@@ -477,6 +495,7 @@
 				A3C10C382773BDC400B2CF50 /* String+Extensions.swift */,
 				A3C10C3A2773BECE00B2CF50 /* Extension+Date.swift */,
 				A3DB48F627ADE16300122166 /* Array+extension.swift */,
+				311A23352809EF54001C6127 /* Bool+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -628,6 +647,7 @@
 			children = (
 				A3DB48FB27AFDAE900122166 /* Log.swift */,
 				313487F62808A89600C56AC2 /* State.swift */,
+				311F4FE5280B161900F92EE8 /* NavigationReturnable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -822,6 +842,7 @@
 				A330A6E027822F1500F88524 /* JTextFieldView.swift in Sources */,
 				A3E9F16E276E3CFF00361050 /* MatchNavigationView.swift in Sources */,
 				A352001527690ADC00FF74BE /* MainNavigationView.swift in Sources */,
+				311F4FE9280B197100F92EE8 /* EditItemButtonView.swift in Sources */,
 				A3232DBE27C4237B0071FD86 /* CrossAnimation.swift in Sources */,
 				A3DB490327AFE68F00122166 /* NewsDetailView.swift in Sources */,
 				A3478AB627B9109400BE36D3 /* ImagePickerView.swift in Sources */,
@@ -842,6 +863,7 @@
 				A3C10C3D2773C2A200B2CF50 /* VerifyNavigationView.swift in Sources */,
 				A38E93ED27B27ED60009D159 /* AddNewsArticleView.swift in Sources */,
 				A3C10C402773C49100B2CF50 /* EmptyView.swift in Sources */,
+				311F4FE6280B161900F92EE8 /* NavigationReturnable.swift in Sources */,
 				A324EE672761352E00D1E1A2 /* ContentView.swift in Sources */,
 				A379D7532768EC5B00BCD05D /* UsersView.swift in Sources */,
 				A324EE652761352E00D1E1A2 /* DAC_BeheerApp.swift in Sources */,
@@ -857,6 +879,7 @@
 				A3E56A1927CA2A05007A6D27 /* TitleSectionView.swift in Sources */,
 				A324EE76276136E000D1E1A2 /* SystemFont.swift in Sources */,
 				A3EFBB4127DA32950059DC22 /* EventRegister.swift in Sources */,
+				311F4FEB280B19C400F92EE8 /* DeleteItemButtonView.swift in Sources */,
 				A34925752773A00900E6ADF4 /* VerifyRegistrantsView.swift in Sources */,
 				A3C10C422773C49E00B2CF50 /* EmptyViewModel.swift in Sources */,
 				A3D3998227B1C14A00292B06 /* AddButtomView.swift in Sources */,
@@ -875,6 +898,7 @@
 				A34D37DD276285E3009D11F2 /* HomeView.swift in Sources */,
 				A3489F4F2770C69600F21685 /* Interceptor.swift in Sources */,
 				A3DB48FC27AFDAE900122166 /* Log.swift in Sources */,
+				311A23362809EF54001C6127 /* Bool+Extension.swift in Sources */,
 				A38303F8276E17C700B2B888 /* UserRepeatableView.swift in Sources */,
 				A38303FC276E233000B2B888 /* UserNavigation.swift in Sources */,
 				A321B8912770B45700FD53BB /* Router.swift in Sources */,

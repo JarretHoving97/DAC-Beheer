@@ -63,8 +63,6 @@ struct EventOverViewView: View {
                     titleSectionView(title: "Inschrijven tot", font: (name: .extraBold, size: .small))
                         .padding(.leading, 10)
                     
-
-                    
                     HStack {
                         Text(event.registerTill.serverDateString(to: .elegant, timeFormatOnly: true))
                             .themedFont(name: .regular, size: .regular)
@@ -84,19 +82,25 @@ struct EventOverViewView: View {
                                 .padding(.trailing, 12)
                             Spacer()
                         }
-                    }
-                
-                    titleSectionView(title: "Content", font: (name: .extraBold, size: .small))
-                        .padding(.leading, 10)
-                    
-                    HStack {
-                        Text(event.content)
+                        
+                        titleSectionView(title: "Content", font: (name: .extraBold, size: .small))
+                            .padding(.leading, 10)
+                        
+                        HStack {
+                            Text(event.content)
+                                .themedFont(name: .regular, size: .regular)
+                                .padding(.leading, 12)
+                                .padding(.trailing, 12)
+                        }
+                        
+                        titleSectionView(title: "Alleen voor leden", font: (name: .extraBold, size: .small))
+                            .padding(.leading, 10)
+                        
+                        Text(event.membersOnly.localized())
                             .themedFont(name: .regular, size: .regular)
                             .padding(.leading, 12)
                             .padding(.trailing, 12)
                     }
-                    
-                 
                 }
             }
             .background(SystemColors.background)
