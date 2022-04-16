@@ -9,11 +9,11 @@ import Foundation
 
 enum BaseUrl: String {
     case local = "http://localhost:8080/admin"
-    case testenv = "https://dacapp.azurewebsites.net/admin"
+    case testenv = "http://192.168.0.102:8080/admin"
 }
 
 struct NetworkEnvironment {
-    static let current: BaseUrl = .local
+    static let current: BaseUrl = .testenv
 }
 
 

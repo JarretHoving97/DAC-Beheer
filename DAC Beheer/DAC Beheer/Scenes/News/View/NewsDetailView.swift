@@ -17,43 +17,58 @@ struct NewsDetailView: View {
     
     let spacing: CGFloat = 4
     
+    var hasImage: Bool {
+        return image != nil
+    }
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: spacing) {
-                    titleSectionView(title: "Bericht titel:", font: (name: .extraBold, size: .small))
+                    titleSectionView(title: "Titel", font: (name: .extraBold, size: .small))
+                        .padding(.leading, 10)
                     HStack {
                        
                         Text(newsTitle)
                             .themedFont(name: .bold, size: .title)
                             .frame(width: UIScreen.main.bounds.size.width - 24, alignment: .leading)
-                            .padding(.leading, 17)
+                            .padding(.leading, 12)
+                            .padding(.trailing, 12)
                         Spacer()
                     }
-                    titleSectionView(title: "Foto(s):", font: (name: .extraBold, size: .small))
-                    HStack {
-                        Spacer()
-                  
-                        WebImage(url: WebImageHelper.imageUrl(image))
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width * 0.9)
-                        Spacer()
+            
+                    if hasImage {
+                        titleSectionView(title: "Foto(s)", font: (name: .extraBold, size: .small))
+                            .padding(.leading, 10)
+                        HStack {
+                            Spacer()
+                      
+                            WebImage(url: WebImageHelper.imageUrl(image))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width * 0.9)
+                            Spacer()
+                        }
                     }
-                    titleSectionView(title: "Content:", font: (name: .extraBold, size: .small))
+                    titleSectionView(title: "Omschrijving", font: (name: .extraBold, size: .small))
+                        .padding(.leading, 10)
                     HStack {
                         Text(content)
                             .themedFont(name: .regular, size: .regular)
-                            .padding(.leading, 17)
+                            .padding(.leading, 10)
+                            .padding(.trailing, 10)
+                        
                         Spacer()
                     }
-                    titleSectionView(title: "Geplaatst op datum:", font: (name: .extraBold, size: .small))
+                    titleSectionView(title: "Publicatie datum", font: (name: .extraBold, size: .small))
+                        .padding(.leading, 10)
                     HStack {
                         Text(date.serverDateString(to: .simpleFormat))
                             .themedFont(name: .regular, size: .regular)
-                            .padding(.leading, 17)
+                            .padding(.leading, 10)
+                            .padding(.trailing, 10)
+
                     }
-                    
                 }
             }
             .background(SystemColors.background)
@@ -61,16 +76,3 @@ struct NewsDetailView: View {
     }
 }
 
-struct titleSectionView: View {
-    
-    let title: String
-    let font: (name: ScaledFont.ThemeFont, size: ScaledFont.ThemeFontSize)
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .themedFont(name: font.name, size: font.size)
-        }
-        .padding(.leading, 17)
-    }
-}

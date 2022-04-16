@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 /// for large text content
@@ -34,6 +35,8 @@ struct JTextView: View {
     
     var body: some View {
         VStack {
+            titleSectionView(title: title, font: (name: .bold, size: .title), color: SystemColors.backgroundText)
+                .padding(.bottom, -8)
             ZStack {
                 TextEditor(text: $text)
                     .background(SystemColors.JTextField.textFieldText)

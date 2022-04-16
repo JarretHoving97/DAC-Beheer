@@ -51,7 +51,6 @@ struct NewsNavigationView: View {
                             
                             HStack {
                                 Button {
-                                    
                                     withAnimation {
                                         navigationController.addAndPresent(AnyView(NewsDetailView(newsTitle: newsItem.title, content: newsItem.content, date: newsItem
                                                                                                     .createdAt, image: newsItem.image)))
@@ -67,7 +66,6 @@ struct NewsNavigationView: View {
                                     HStack(spacing: 17) {
                                         Button {
                                             // edit item
-                                            
                                             withAnimation {
                                                 Log.debug("newsItem to edit \(newsItem)")
                                                 navigationController.addAndPresent(AnyView(UpdateNewsArticleView(viewRouter: viewRouter, navigation: navigationController, newsItem: newsItem)))
@@ -81,9 +79,11 @@ struct NewsNavigationView: View {
                                                     .cornerRadius(100)
                                                 
                                                 VStack(spacing: 0) {
-                                                    Image(systemName: "pencil.slash")
+                                                    Image(systemName: "square.and.pencil")
                                                         .resizable()
                                                         .foregroundColor(Color.white)
+                                                        .padding(.leading, 2)
+                                                        .padding(.bottom, 2)
                                                         .frame(width: 20, height: 20, alignment: .center)
                                                         .foregroundColor(SystemColors.backgroundText)
                                                 }
@@ -143,7 +143,7 @@ struct NewsNavigationView: View {
                             }
                             
                         } label: {
-                            AddButtonView(systemName: "note.text.badge.plus")
+                            AddButtonView(systemName: "plus")
                                 .padding(30)
                         }
                     }

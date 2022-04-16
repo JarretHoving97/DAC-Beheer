@@ -56,3 +56,18 @@ extension Date {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: component)
     }
 }
+
+extension Date {
+    public func toServerDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormat.serverDate.rawValue
+        
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let dateString = formatter.string(from: self)
+        
+        return dateString
+        
+    }
+}

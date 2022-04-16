@@ -7,39 +7,6 @@
 
 import Foundation
 
-let json = """
-
-[
-  {
-    "firstName": "Jarret",
-    "lastName": "Hoving",
-    "team": "H1",
-    "function": "Technische dienstverlener"
-  },
-  {
-    "firstName": "Jarret",
-    "lastName": "Hoving",
-    "team": "H1",
-    "function": "Technische dienstverlener"
-  },
-
-  {
-    "firstName": "Jarret",
-    "lastName": "Hoving",
-    "team": "H1",
-    "function": "Technische dienstverlener"
-  },
-
-  {
-    "firstName": "Jarret",
-    "lastName": "Hoving",
-    "team": "H1",
-    "function": "Technische dienstverlener"
-  }
-]
-
-"""
-
 struct UserModel {
     
     let firstName: String

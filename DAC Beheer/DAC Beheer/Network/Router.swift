@@ -19,7 +19,7 @@ enum EndpointType {
 enum Router: URLRequestConvertible {
     
     // MARK: - USERS
-    case getNewRegistrant
+    case getNewRegistrants
     case verifyRegistrant(id: String)
     case deleteReigstrant(id: String)
     
@@ -28,21 +28,33 @@ enum Router: URLRequestConvertible {
      Upload calls add and update are handled in the function it self
      See Api class.
      */
-
     case getNewsArticles(itemsPerPage: Int, currentPage: Int)
     case deleteNewsArticle(id: String)
+    case getRegistrantsForEvent(_ id: String)
+    
+    //MARK: - EVENT
+    case getAllEvents
+    case deleteEvent(id: String)
 
+    
+    // MARK: - ADMIN USER
     case login
     
     var baseUrl: String {
         return NetworkEnvironment.current.rawValue
     }
     
+    static var mediaUrl: String {
+        var base = NetworkEnvironment.current.rawValue
+        base.removeLast(6)
+        return "\(base)/image"
+    }
+    
     var urlExtension: String {
         switch self {
             
             // MARK: USERS
-        case .getNewRegistrant:
+        case .getNewRegistrants:
             return "verify/registrations"
         case .verifyRegistrant(id: let id):
             return "verify/appuser/\(id)"
@@ -56,7 +68,17 @@ enum Router: URLRequestConvertible {
             return "news/all/pageCount/\(pageCount)/page/\(page)"
         case .deleteNewsArticle(id: let id):
             return "news/delete/\(id)"
-       
+            
+            // MARK: EVENT
+        case .getAllEvents:
+            return "event/all"
+            
+        case .getRegistrantsForEvent(let id):
+            return "event/registers/\(id)"
+            
+        case .deleteEvent(id: let id):
+            return "event/delete/\(id)"
+    
         }
     }
     
@@ -73,19 +95,22 @@ enum Router: URLRequestConvertible {
         switch self {
             
             // MARK: - USERS
-        case .getNewRegistrant:
+        case .getNewRegistrants, .getAllEvents:
             return .get
             
         case .verifyRegistrant:
             return .patch
             
-        case .deleteReigstrant, .deleteNewsArticle:
+        case .deleteReigstrant, .deleteNewsArticle, .deleteEvent:
             return .delete
             
             // MARK: - NEWS
         case .getNewsArticles:
             return .get
-            
+        
+            // MARK: - EVENT
+        case .getRegistrantsForEvent:
+            return .get
             
         default:
             ///Post request are propably

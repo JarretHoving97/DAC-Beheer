@@ -43,7 +43,7 @@ struct AddNewsArticleView: View {
                      
                         HStack {
                             Text("Foto (optioneel)")
-                                .themedFont(name: .semiBold, size: .largeValutaSub)
+                                .themedFont(name: .semiBold, size: .title)
                                 .foregroundColor(SystemColors.backgroundText)
                             Spacer()
                         }
@@ -75,13 +75,6 @@ struct AddNewsArticleView: View {
                 
                     // section 3
                     VStack(spacing: 0) {
-                        HStack {
-                            Text("Content")
-                                .themedFont(name: .semiBold, size: .largeValutaSub)
-                                .foregroundColor(SystemColors.backgroundText)
-                            Spacer()
-                        }
-                        .padding(.leading, 17)
                         JTextView(text: $content)
                             .padding(.leading, 17)
                             .padding(.trailing, 17)
@@ -148,8 +141,6 @@ struct AddNewsArticleView: View {
                 .sheet(isPresented: $showingImagePicker) {
                     ImagePicker(image: $inputImage)
                 }
-
-        
             }
             .background(SystemColors.background)
             
@@ -161,7 +152,6 @@ struct AddNewsArticleView: View {
                 XmarkAnimation()
             }
         }
-        
     }
     
     func loadImage() {

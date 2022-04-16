@@ -11,7 +11,20 @@ import Network
 import UIKit
 import AVFoundation
 
+typealias DefaultResponse = Result<SuccessResponse, AFError>
+
 struct Api {}
+
+extension Api {
+
+    struct Generic {
+        static func regularResponseCall(req: Router, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            AF.request(req).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
+        }
+    }
+}
 
 // MARK: - Token authentication calls here
 extension Api {
@@ -49,7 +62,7 @@ extension Api {
         
         // get new registrants
         static func getNewRegistrants(completion: @escaping (Result<[NewRegistrant], AFError>) -> Void) {
-            AF.request(Router.getNewRegistrant).responseDecodable { (response: DataResponse<[NewRegistrant], AFError>) in
+            AF.request(Router.getNewRegistrants).responseDecodable { (response: DataResponse<[NewRegistrant], AFError>) in
                 completion(response.result)
             }
         }
@@ -151,6 +164,90 @@ extension Api {
                 .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
                     completion(response.result)
                 }
+        }
+    }
+}
+
+// MARK: - EVENT
+extension Api {
+    
+    struct Events {
+        
+        static func getRegistersForEvent(eventId: String, completion: @escaping (Result<EventRegistration, AFError>) -> Void) {
+            AF.request(Router.getRegistrantsForEvent(eventId))
+                .responseDecodable { (response: DataResponse<EventRegistration, AFError>) in
+                    completion(response.result)
+            }
+        }
+        
+        static func getAllEvents(completion: @escaping (Result<[Event], AFError>) -> Void) {
+            
+            AF.request(Router.getAllEvents).responseDecodable { (response: DataResponse<[Event], AFError>) in
+                completion(response.result)
+            }
+        }
+        
+        
+        static func sendEvent(parameters: Parameters, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            
+            
+            let headers: HTTPHeaders = [
+                /* "Authorization": "your_access_token",  in case you need authorization header */
+                "Content-type": "multipart/form-data"
+            ]
+            
+            let url = "\(NetworkEnvironment.current.rawValue)/event/create"
+            
+            Log.debug("url: \(url)")
+            
+            Log.debug("Sending parameters: \(parameters)")
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+                }
+                
+                // add image to header
+                if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+                    
+                    multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
+                }
+                
+            }, to: url, method: .post, headers: headers)
+                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                    completion(response.result)
+            }
+        }
+        
+        static func updateEvent(parameters: Parameters, id: Int, image: UIImage? = nil,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
+            
+            
+            let headers: HTTPHeaders = [
+                /* "Authorization": "your_access_token",  in case you need authorization header */
+                "Content-type": "multipart/form-data"
+            ]
+            
+            let url = "\(NetworkEnvironment.current.rawValue)/event/update"
+            
+            Log.debug("url: \(url)")
+            
+            Log.debug("Sending parameters: \(parameters)")
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+                }
+                
+                // add image to header
+                if let image = image, let imageData = image.jpegData(compressionQuality: 0.8) {
+                    
+                    multipartFormData.append(imageData, withName: "image", fileName: "newsImage.png", mimeType: "image/png")
+                }
+                
+            }, to: url, method: .patch, headers: headers)
+                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                    completion(response.result)
+            }
         }
     }
 }
