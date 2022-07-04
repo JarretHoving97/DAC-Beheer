@@ -6,22 +6,34 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct UsersView: View {
+    
+    @ObservedObject var viewModel = UsersViewModel()
+    
+    
     var body: some View {
-        
-        ScrollView {
-            VStack(spacing: 13) {
-                //Searchabr
-                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
-                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
-                UserRepeatableView(user: .init(firstName: "Jarret", lastName: "Hoving", team: "H1", function: "App developer"))
-                
-                //repeatable cell
+    
+        NavigationStack {
+            
+            List {
+                ForEach(viewModel.users) { user in
+                    
+                    NavigationLink {
+                        UserDetailView(user: user)
+                    } label: {
+                        UserRepeatableView(user: user)
+                    }
+            
+                    
+                }
             }
+            .ignoresSafeArea(.all)
+
         }
-        .background(SystemColors.background)
     }
+    
 }
 
 struct UsersView_Previews: PreviewProvider {

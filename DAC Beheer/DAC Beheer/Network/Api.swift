@@ -251,3 +251,23 @@ extension Api {
         }
     }
 }
+
+// MARK: - USERS
+
+extension Api {
+    
+    struct Users {
+        
+        static func getAllUser(completion: @escaping (Result<UsersResponse, AFError>) -> Void)  {
+            AF.request(Router.getUsers(itemsPerPage: 100, currentPage: 1)) // todo fix this
+                .responseDecodable { (response: DataResponse<UsersResponse, AFError>) in
+                    completion(response.result)
+                }
+        }
+        
+//        static func updateUser()
+//
+//        static func deleteUser()
+        
+    }
+}

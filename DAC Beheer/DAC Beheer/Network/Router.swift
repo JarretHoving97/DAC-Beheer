@@ -12,8 +12,6 @@ import CoreVideo
 enum EndpointType {
     case app
     case dashboard
-    
-    
 }
 
 enum Router: URLRequestConvertible {
@@ -32,9 +30,14 @@ enum Router: URLRequestConvertible {
     case deleteNewsArticle(id: String)
     case getRegistrantsForEvent(_ id: String)
     
-    //MARK: - EVENT
+    // MARK: - EVENT
     case getAllEvents
     case deleteEvent(id: String)
+    
+    // MARK: - AppUser
+    case getUsers(itemsPerPage: Int, currentPage: Int)
+    case deleteUser(id: String)
+    case updateUser(id: String, content: String)
 
     
     // MARK: - ADMIN USER
@@ -66,6 +69,7 @@ enum Router: URLRequestConvertible {
             // MARK: NEWS
         case .getNewsArticles(itemsPerPage: let pageCount, currentPage: let page):
             return "news/all/pageCount/\(pageCount)/page/\(page)"
+            
         case .deleteNewsArticle(id: let id):
             return "news/delete/\(id)"
             
@@ -78,13 +82,22 @@ enum Router: URLRequestConvertible {
             
         case .deleteEvent(id: let id):
             return "event/delete/\(id)"
-    
+            
+            // MARK: USER
+        case .getUsers(itemsPerPage: let pageCount, currentPage: let page):
+            return "user/users/pageCount/\(pageCount)/page/\(page)"
+        
+        case .deleteUser(id: let id), .updateUser(id: let id, content: _):
+            return "user/\(id)"
         }
     }
     
     var parameters: Parameters {
         
         switch self {
+            
+        case .updateUser(id: _, content: let body):
+            return ["body": body]
       
         default:
             return [:]
@@ -95,13 +108,13 @@ enum Router: URLRequestConvertible {
         switch self {
             
             // MARK: - USERS
-        case .getNewRegistrants, .getAllEvents:
+        case .getNewRegistrants, .getAllEvents, .getUsers:
             return .get
             
-        case .verifyRegistrant:
+        case .verifyRegistrant, .updateUser:
             return .patch
             
-        case .deleteReigstrant, .deleteNewsArticle, .deleteEvent:
+        case .deleteReigstrant, .deleteNewsArticle, .deleteEvent, .deleteUser:
             return .delete
             
             // MARK: - NEWS

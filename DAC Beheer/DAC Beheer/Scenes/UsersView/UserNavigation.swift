@@ -11,6 +11,8 @@ struct UserNavigation: View {
     
     @State private var searchText = ""
     
+   @ObservedObject var viewModel = UsersViewModel()
+    
     var body: some View {
         
         VStack {
@@ -20,11 +22,10 @@ struct UserNavigation: View {
                 .padding(.leading, 17)
                 .foregroundColor(SystemColors.backgroundText)
             
-            SearchBarView()
-            
             UsersView()
-                .navigationTitle("Leden overzicht")
-                .searchable(text: $searchText)
+             
+
+    
         }
         .background(SystemColors.background)
         

@@ -21,7 +21,6 @@ struct AddNewsArticleView: View {
     @State var successPopup = false
     @State var failurePopup = false
     
-    
     var canSend: Bool {
         return !content.isEmpty && !title.isEmpty
     }
