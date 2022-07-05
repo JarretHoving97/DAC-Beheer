@@ -15,10 +15,10 @@ struct UserModel: Codable, Hashable, Identifiable {
     
     let uuid = UUID()
     let id: String
-    let firstName: String
-    let lastName: String
-    let phone: String
-    let membershipNumber: String
+    var firstName: String
+    var lastName: String
+    var phone: String
+    var membershipNumber: String
     let createdAt: String
     let updatedAt: String
     let isVerified: Bool

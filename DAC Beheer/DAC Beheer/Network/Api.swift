@@ -16,7 +16,7 @@ typealias DefaultResponse = Result<SuccessResponse, AFError>
 struct Api {}
 
 extension Api {
-
+    
     struct Generic {
         static func regularResponseCall(req: Router, completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
             AF.request(req).responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
@@ -88,7 +88,7 @@ extension Api {
     
     struct News {
         static func getNewsPost(completion: @escaping (Result<NewsListModel, AFError>) -> Void) {
-            AF.request(Router.getNewsArticles(itemsPerPage: 14, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
+            AF.request(Router.getNewsArticles(itemsPerPage: 1000, currentPage: 1)).responseDecodable { (response: DataResponse<NewsListModel, AFError>) in
                 completion(response.result)
             }
         }
@@ -127,13 +127,13 @@ extension Api {
                 }
                 
             }, to: url, method: .post, headers: headers)
-                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
-                    completion(response.result)
-                }
+            .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
         }
         
         static func updateNewsArticle(title: String, content: String, image: UIImage? = nil, id: Int,  completion: @escaping (Result<SuccessResponse, AFError>) -> Void) {
-
+            
             
             let parameters: Parameters = [
                 "title": title,
@@ -161,9 +161,9 @@ extension Api {
                 }
                 
             }, to: url, method: .patch, headers: headers)
-                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
-                    completion(response.result)
-                }
+            .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
+            }
         }
     }
 }
@@ -177,7 +177,7 @@ extension Api {
             AF.request(Router.getRegistrantsForEvent(eventId))
                 .responseDecodable { (response: DataResponse<EventRegistration, AFError>) in
                     completion(response.result)
-            }
+                }
         }
         
         static func getAllEvents(completion: @escaping (Result<[Event], AFError>) -> Void) {
@@ -214,8 +214,8 @@ extension Api {
                 }
                 
             }, to: url, method: .post, headers: headers)
-                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
-                    completion(response.result)
+            .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
             }
         }
         
@@ -245,8 +245,8 @@ extension Api {
                 }
                 
             }, to: url, method: .patch, headers: headers)
-                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
-                    completion(response.result)
+            .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                completion(response.result)
             }
         }
     }
@@ -258,16 +258,18 @@ extension Api {
     
     struct Users {
         
-        static func getAllUser(completion: @escaping (Result<UsersResponse, AFError>) -> Void)  {
+        static func getAllUser(completion: @escaping (Result<UsersResponse, AFError>) -> Void) {
             AF.request(Router.getUsers(itemsPerPage: 100, currentPage: 1)) // todo fix this
                 .responseDecodable { (response: DataResponse<UsersResponse, AFError>) in
                     completion(response.result)
                 }
         }
         
-//        static func updateUser()
-//
-//        static func deleteUser()
-        
+        static func editUser(content: String, user: String, completion: @escaping (Result<SuccessResponse, AFError>) -> Void ) {
+            AF.request(Router.updateUser(id: user, content: content))
+                .responseDecodable { (response: DataResponse<SuccessResponse, AFError>) in
+                    completion(response.result)
+                }
+        }
     }
 }

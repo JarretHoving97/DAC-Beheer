@@ -31,6 +31,7 @@ struct UserRepeatableView: View {
             .foregroundColor(SystemColors.itemTextColor)
             Spacer()
         }
+        .frame(height: 108)
         .background(SystemColors.theme1)
         .cornerRadius(10)
         .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 10)
